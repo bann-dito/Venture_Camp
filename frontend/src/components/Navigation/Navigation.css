@@ -1,3 +1,108 @@
-.profile-dropdown {
-    position: absolute;
+header.site-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 20px 0;
 }
+
+.nav-title {
+    color: black;
+    text-decoration: none; 
+}
+
+.nav-title h1 {
+    font-size: 2rem;
+    font-family: Calibre, Helvetica, Arial, sans-serif;
+    color: #333121;
+}
+
+div.session-links {
+    display: flex;
+    align-items: center;
+}
+
+div.session-links > * {
+    margin: 0 20px;
+    font-family: Calibre, Helvetica, Arial, sans-serif;
+}
+
+div.session-links > .signup-nav {
+    border-radius: 8px;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    padding-left: 24px;
+    padding-right: 24px;
+    background-color: rgb(0, 197, 133);
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(0, 197, 133);
+    color: white;
+    height: 40px;
+    font-size: 18px;
+}
+
+div.session-links > .signup-nav:hover {
+    background-color: #00a26a
+}
+
+div.session-links > .login-nav {
+    list-style-type: none;
+    border: transparent;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    transition: border-bottom 0.25s ease 0s;
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: 0px;
+    line-height: 24px;
+    background-color: transparent;
+    color: black;
+}
+
+div.session-links > .login-nav:hover {
+    border-bottom: 2px solid rgb(0, 0, 0);
+}
+
+.profile-button {
+    position: relative;
+}
+
+.profile-icon {
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.profile-dropdown {
+    /* position: absolute; */
+    border: 1px solid grey;
+    border-radius: 5px;
+    padding: 5px;
+    top: 100%;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    background: white;
+    z-index: 1;
+}
+
+/* .profile-dropdown li {
+text-align: right;
+margin: 5px;
+} */
+
+/* .login-modal {
+display: flex;
+padding: 20px;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+}
+
+.login-modal h1 {
+width: 100%;
+text-align: center;
+margin-bottom: 20px;
+} */
+
