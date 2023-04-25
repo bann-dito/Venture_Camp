@@ -35,8 +35,10 @@ function SignupFormPage() {
   return (
     <div className="form-container">
       <form onSubmit={handleSubmit} className="form">
-        <h1> Sign up to continue </h1>
-        <p>Join our community of nature lovers to see all of your booking info in one place.</p>
+        <div className="form-header">
+          <h1> Sign up to continue </h1>
+          <p>Join our community of nature lovers to see all of your booking info in one place.</p>
+        </div>
         <ul>
           {errors.map(error => <li key={error}>{error}</li>)}
         </ul>

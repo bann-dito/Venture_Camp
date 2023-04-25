@@ -1,8 +1,8 @@
 header.site-header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        margin: 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 20px 0;
 }
 
 .nav-title {
@@ -11,9 +11,11 @@ header.site-header {
 }
 
 .nav-title h1 {
-    font-size: 2rem;
+    font-size: 22px;
     font-family: Calibre, Helvetica, Arial, sans-serif;
     color: #333121;
+    margin-left: 15px;
+    font-weight: bold;
 }
 
 div.session-links {
@@ -32,77 +34,108 @@ div.session-links > .signup-nav {
     align-items: center;
     -webkit-box-pack: center;
     justify-content: center;
-    padding-left: 24px;
-    padding-right: 24px;
+    padding-left: 19px;
+    padding-right: 19px;
     background-color: rgb(0, 197, 133);
     border-width: 1px;
     border-style: solid;
     border-color: rgb(0, 197, 133);
     color: white;
-    height: 40px;
-    font-size: 18px;
+    height: 32px;
+    font-size: 12px;
 }
 
 div.session-links > .signup-nav:hover {
-    background-color: #00a26a
+    background-color: #00a26a;
+    cursor: pointer;
 }
 
 div.session-links > .login-nav {
-    list-style-type: none;
-    border: transparent;
     padding-top: 2px;
     padding-bottom: 2px;
-    transition: border-bottom 0.25s ease 0s;
-    font-size: 18px;
-    font-weight: 400;
-    letter-spacing: 0px;
-    line-height: 24px;
-    background-color: transparent;
+    font-size: 12px;
     color: black;
-}
-
-div.session-links > .login-nav:hover {
-    border-bottom: 2px solid rgb(0, 0, 0);
-}
-
-.profile-button {
     position: relative;
 }
 
-.profile-icon {
+div.session-links > .login-nav:hover {
+    cursor: pointer;
+}
+
+div.session-links > .login-nav:before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    width: 0;
+    background-color: black;
+    transition: width 0.3s ease;
+    transform-origin: left;
+}
+
+div.session-links > .login-nav:hover:before {
+    width: 100%;
+}
+
+.profile-button {
     font-size: 1.5rem;
+    position: relative;
+    cursor: pointer;
+}
+
+
+.profile-button:hover {
     cursor: pointer;
 }
 
 .profile-dropdown {
-    /* position: absolute; */
-    border: 1px solid grey;
-    border-radius: 5px;
+    position: absolute;
+    border: 1px solid #ebebeb;
     padding: 5px;
     top: 100%;
     right: 0;
     display: flex;
     flex-direction: column;
     background: white;
-    z-index: 1;
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: all 0.3s ease-in-out;
+    width: 200px;
 }
 
-/* .profile-dropdown li {
-text-align: right;
-margin: 5px;
-} */
-
-/* .login-modal {
-display: flex;
-padding: 20px;
-justify-content: center;
-align-items: center;
-flex-direction: column;
+.profile-dropdown li {
+    text-align: left;
+    margin: 6px 0;
+    padding: 5px 10px;
+    padding-bottom: 15px;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+    font-size: 13px;
+    border-bottom: 1px solid #ebebeb;
 }
 
-.login-modal h1 {
-width: 100%;
-text-align: center;
-margin-bottom: 20px;
-} */
+.profile-dropdown li:is(:last-child) {
+    border-bottom: none;
+    padding-bottom: 5px;
+}
+
+.profile-dropdown li:hover {
+    transform: translateX(10px);
+    cursor: pointer;
+}
+
+.profile-dropdown li button:hover {
+    cursor: pointer;
+}
+  
+.profile-dropdown.show {
+    opacity: 1;
+    transform: scaleY(1);
+}
+
+.session-links {
+    position: relative;
+}
+  
 

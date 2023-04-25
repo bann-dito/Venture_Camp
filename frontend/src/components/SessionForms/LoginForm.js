@@ -48,8 +48,10 @@ function LoginForm() {
   return (
     <div className="form-container">
       <form onSubmit={handleSubmit} className="form">
-        <h1> Log in to continue </h1>
-        <p>Welcome back! Let's get you outside.</p>
+        <div className="form-header">
+          <h1> Log in to continue </h1>
+          <p>Welcome back! Let's get you outside.</p>
+        </div>
         <ul>
           {errors.map(error => <li key={error}>{error}</li>)}
         </ul>
@@ -73,7 +75,7 @@ function LoginForm() {
         </label>
         <br />
         <button type="submit">Log In</button>
-        <button type="button" onClick={handleDemoLogin}>Demo User Login</button>
+        <button id="demo-button" type="button" onClick={handleDemoLogin}>Demo User Login</button>
       </form>
     </div>
   );
