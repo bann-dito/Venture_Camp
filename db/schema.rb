@@ -10,9 +10,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_21_214841) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_25_175129) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "listings", force: :cascade do |t|
+    t.bigint "host_id", null: false
+    t.string "title", null: false
+    t.string "description", null: false
+    t.string "city", null: false
+    t.string "state", null: false
+    t.string "country", null: false
+    t.integer "capacity", null: false
+    t.boolean "hiking", default: false
+    t.boolean "biking", default: false
+    t.boolean "rock_climbing", default: false
+    t.boolean "fishing", default: false
+    t.boolean "horseback_riding", default: false
+    t.boolean "wifi", default: false
+    t.boolean "pets", default: false
+    t.boolean "toilet", default: false
+    t.boolean "shower", default: false
+    t.boolean "campfire", default: false
+    t.float "price", null: false
+    t.float "longitude", null: false
+    t.float "latitude", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["host_id"], name: "index_listings_on_host_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", null: false
@@ -26,4 +52,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_21_214841) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
+  add_foreign_key "listings", "users", column: "host_id"
 end
