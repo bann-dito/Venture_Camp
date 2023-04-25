@@ -2,8 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
-import LoginFormModal from '../LoginFormModal';
-import SignupFormModal from '../SignupFormModal';
+import {LoginFormModal, SignupFormModal} from '../SessionForms';
 import './Navigation.css';
 
 function Navigation(){
@@ -24,12 +23,14 @@ function Navigation(){
   }
 
   return (
-    <ul>
-      <li>
-        <NavLink exact to="/">Home</NavLink>
+    <header className="site-header">
+      <NavLink exact to="/" className="nav-title">
+        <h1>VENTURE CAMP</h1>
+      </NavLink>
+      <div className="session-links">
         {sessionLinks}
-      </li>
-    </ul>
+      </div>
+    </header>
   );
 }
 

@@ -5,21 +5,22 @@ import * as sessionActions from '../../store/session';
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
+  const [iconClass, setIconClass] = useState("fa-solid fa-campground")
   
   const openMenu = () => {
-    if (showMenu) return;
     setShowMenu(true);
+    setIconClass("fa-solid fa-campground fa-bounce")
+  };
+
+  const closeMenu = () => {
+    setShowMenu(false);
+    setIconClass("fa-solid fa-campground")
   };
   
   useEffect(() => {
     if (!showMenu) return;
 
-    const closeMenu = () => {
-      setShowMenu(false);
-    };
-
     document.addEventListener('click', closeMenu);
-  
     return () => document.removeEventListener("click", closeMenu);
   }, [showMenu]);
 
@@ -29,20 +30,18 @@ function ProfileButton({ user }) {
   };
 
   return (
-    <>
-      <button onClick={openMenu}>
-        <i className="fa-solid fa-user-circle" />
+    <div className='profile-button-container'>
+      <button className="profile-button" onClick={openMenu}>
+        <i className={iconClass} style={{color: "#c74f2d"}}></i>
       </button>
-      {showMenu && (
-        <ul className="profile-dropdown">
-          <li>{user.username}</li>
-          <li>{user.email}</li>
-          <li>
-            <button onClick={logout}>Log Out</button>
-          </li>
-        </ul>
-      )}
-    </>
+      <ul className={`profile-dropdown ${showMenu ? 'show' : ''}`}>
+        <li>{user.username}</li>
+        <li>{user.email}</li>
+        <li>
+          <button onClick={logout}>Log Out</button>
+        </li>
+      </ul>
+    </div>
   );
 }
 
