@@ -1,0 +1,71 @@
+.listing-show-header{
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.listing-show-header h1{
+    font-size: 30px;
+    font-weight: normal;
+    border: 3px solid blue;
+}
+
+.listing-show-visuals{
+    display: flex;
+    justify-content: space-evenly;
+    border: 3px purple solid;
+}
+
+
+.listing-show-section{
+    padding: 20px 0;
+    border: 3px solid green;
+}
+
+.listing-show-section h2{
+    font-size: 20px;
+    font-weight: normal;
+    margin-bottom: 10px;
+    text-align: center;
+    border: 1px red solid;
+}
+
+.listing-show-section p{
+    font-size: 16px;
+    font-weight: normal;
+    margin-bottom: 10px;
+    /* text-align: left; */
+    border: 1px blue solid;
+}
+
+.listing-show-section li{
+    font-size: 16px;
+    font-weight: normal;
+    margin-bottom: 10px;
+    /* text-align: left; */
+    border: 1px orange solid;
+}
+
+/* how can i center this map? */
+.listing-show-map{
+    margin: 20px;
+    border: 3px solid pink;
+    height: 250px;
+}
+
+.listing-show-reviews{
+    margin: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 15px;
+    border: 3px solid red;
+}
+
+.listing-review{
+    min-height: 100px;
+    border: 1px solid rgb(230,230,230);
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}

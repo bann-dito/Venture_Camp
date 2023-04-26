@@ -2,12 +2,13 @@
     display: flex;
 }
 
-.camp-index-map{
+.camp-index-map-container h2{
     display: flex;
     align-items: center;
+    height: 70px
 }
 
-.camp-index-map{
+.camp-index-map-container{
     width: 100%;
     height: 600px;
     margin-right: 20px;
@@ -23,7 +24,6 @@
     flex-direction: column;
     overflow-y: auto;
     height: 600px;
-    border-top: #ebebeb 1px solid;
     border-bottom: 1px solid #ebebeb;
 }
 
@@ -33,14 +33,13 @@
 
 .camp-list-item{
     border: 1px solid #ebebeb;
-    border-radius: 5px;
     margin-bottom: 5px;
     display: flex;
     justify-content: space-between;
     cursor: pointer;
 }
 
-.camp-title{
+.list-item-info{
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -48,27 +47,30 @@
     align-items: center;
 }
 
-.camp-title h1{
+.list-item-info h1{
+    font-size: 1.6rem;
     font-weight: normal;
-    font-size: 20px;
 }
 
-.camp-items {
+.list-item-fields {
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.camp-info {
+.info-field{
     display: flex;
     flex-direction: column;
 }
 
-.camp-item-heading{
+
+.list-item-heading{
+    font-style: italic;
     margin-bottom: 5px;
 }
 
-.camp-item-info{
-    
+.list-item-info{
+    font-size: 1.4rem;
+    font-weight: lighter;
 }

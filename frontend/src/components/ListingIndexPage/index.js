@@ -18,7 +18,7 @@ function ListingIndexPage() {
             <div className="camp-listing-container">
                 <CampList camps={camps} />
             </div>
-            <div className="camp-index-map">
+            <div className="camp-index-map-container">
                 <h2>Coming Soon</h2>
             </div>
         </div>
