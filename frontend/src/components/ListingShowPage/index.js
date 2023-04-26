@@ -29,7 +29,10 @@ function ListingShowPage() {
                 <Link to="/listings">Back to Camps</Link>
                 <h1>{title}</h1>
             </div>
-            <section className="Listing-show-details">
+            <div className='listing-show-visuals'>
+                
+            </div>
+            <section className="listing-show-details">
                 <h2>About Camp Site</h2>
                 <p>{description}</p>
                 <p>${price}</p>

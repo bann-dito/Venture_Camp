@@ -1,0 +1,74 @@
+.camp-index-page{
+    display: flex;
+}
+
+.camp-index-map{
+    display: flex;
+    align-items: center;
+}
+
+.camp-index-map{
+    width: 100%;
+    height: 600px;
+    margin-right: 20px;
+}
+
+.camp-listing-container{
+    margin-left: 20px;
+    width: 100%;
+}
+
+.camp-list{
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    height: 600px;
+    border-top: #ebebeb 1px solid;
+    border-bottom: 1px solid #ebebeb;
+}
+
+.camp-list h1 {
+    margin-bottom: 15px;
+}
+
+.camp-list-item{
+    border: 1px solid #ebebeb;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.camp-title{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 0 20px;
+    align-items: center;
+}
+
+.camp-title h1{
+    font-weight: normal;
+    font-size: 20px;
+}
+
+.camp-items {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.camp-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.camp-item-heading{
+    margin-bottom: 5px;
+}
+
+.camp-item-info{
+    
+}

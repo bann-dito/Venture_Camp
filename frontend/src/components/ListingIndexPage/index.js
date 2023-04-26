@@ -4,8 +4,6 @@ import { fetchListings } from "../../store/listings";
 import CampList from "./CampList";
 import "./ListingsIndexPage.css"
 
-
-
 function ListingIndexPage() {
     const dispatch = useDispatch();
     const camps = useSelector(state => Object.values(state.listings));
@@ -15,11 +13,14 @@ function ListingIndexPage() {
     }, [dispatch]);
 
 
-
     return (
-        <div className="Listings-top=container">
-            <h1>Listings</h1>
-            <CampList camps={camps} />
+        <div className="camp-index-page">
+            <div className="camp-listing-container">
+                <CampList camps={camps} />
+            </div>
+            <div className="camp-index-map">
+                <h2>Coming Soon</h2>
+            </div>
         </div>
     );
 }
