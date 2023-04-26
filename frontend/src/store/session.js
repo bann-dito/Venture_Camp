@@ -11,7 +11,7 @@ export const setCurrentUser = (user) => ({
 })
 
 
-//thunk action creator
+
 const removeCurrentUser = () => ({
     type: REMOVE_CURRENT_USER
 })
