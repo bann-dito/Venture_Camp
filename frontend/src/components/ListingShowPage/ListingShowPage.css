@@ -1,0 +1,126 @@
+.listing-show{
+    background-color: #f3f2ef;
+    color: #333121;
+    padding-left: 24px;
+    padding-right: 24px;
+    max-width: 1280px;
+    width: 100%;
+    display: block;
+    box-sizing: border-box;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.fa-circle-arrow-left{
+    margin-top: 10px;
+    margin-left: 20px;
+    color: #9f3f24;
+    font-size: 30px;
+}
+
+.listing-show-header{
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.listing-show-header h1{
+    font-size: 40px;
+    margin-left: 20px;
+    margin-top: 20px;
+    letter-spacing: -0.96;
+    border: 3px solid blue;
+}
+
+.listing-show-visuals{
+    display: flex;
+    justify-content: space-evenly;
+    border: 3px purple solid;
+}
+
+
+.listing-show-section{
+    margin: 20px;
+    display: flex; /* change the display to flex */
+    /* justify-content: space-between; */
+    border: 3px solid green;
+}
+
+
+.listing-show-section p{
+    font-size: 14px;
+    font-weight: normal;
+    margin-bottom: 10px;
+    width: 750px;
+    font-weight: 400;
+    letter-spacing: 0px;
+    line-height: 30px;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-right: 12vmin;
+    position: sticky;
+    border: 1px blue solid;
+}
+
+.listing-show-section ul {
+    margin-right: 70px;
+    border: 1px green solid;
+}
+
+
+.listing-show-section li{
+    font-size: 13px;
+    font-weight: lighter;
+    margin-bottom: 10px;
+    letter-spacing: 0px;
+    line-height: 24px;
+    width: 149px;
+    border: 1px orange solid;
+    
+}
+
+.listing-show-section h3 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    letter-spacing: 0px;
+    line-height: 30px;
+
+}
+
+.info-category i {
+    margin-right: 5px;
+}
+
+
+.listing-show-map{
+    margin: 20px;
+    border: 3px solid pink;
+    height: 250px;
+}
+
+.listing-show-booking{
+    margin: 20px;
+    border: 3px solid yellow;
+    height: 100px;
+}
+
+.listing-show-reviews{
+    margin: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 15px;
+    border: 3px solid red;
+}
+
+.listing-review{
+    min-height: 100px;
+    border: 1px solid rgb(230,230,230);
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}

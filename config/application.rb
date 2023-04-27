@@ -24,7 +24,7 @@ module VentureCamp
     config.load_defaults 7.0
     config.middleware.use ActionDispatch::Cookies
     config.middleware.use ActionDispatch::Session::CookieStore,
-    key: '_auth_me_session',
+    key: '_venture_camp_session',
     same_site: :lax, 
     secure: Rails.env.production?
 
