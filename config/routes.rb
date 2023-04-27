@@ -10,4 +10,6 @@ Rails.application.routes.draw do
     resources :listings, only: [:index, :show]
   end
 
+  get '*path', to: 'static_pages#frontend', constraints: ->(request) {!request.xhr? && request.format.html?}
+
 end
