@@ -23,9 +23,9 @@ function ListingShowPage() {
 
     const { 
         title, description, price, city, state, capacity, 
-        hiking, biking, rock_climbing, fishing, horseback_riding, 
+        hiking, biking, rockClimbing, fishing, horsebackRiding, 
         wifi, pets, toilet, shower, campfire,
-        longitude, latitude
+        longitude, latitude, photoUrl
     } = camp;
 
     return (
@@ -37,7 +37,12 @@ function ListingShowPage() {
                 <h1>{title}</h1>
             </div>
             <div className='listing-show-visuals'>
-                <h1>PICTURES GO HERE</h1>
+                <div className='listing-show-visuals-main'>
+                    {photoUrl && <img src={photoUrl} alt='Camp'/>}
+                </div>
+                <div className='listing-show-visuals-sub'>
+                    <h1>SUB Photos</h1>
+                </div>
             </div>
             <section className="listing-show-section">
                 <p>{description}</p>
@@ -58,7 +63,7 @@ function ListingShowPage() {
                     <li>
                         <span className='info-category'>
                             <i class="fa-solid fa-mountain"></i>
-                            Rock Climbing: {rock_climbing ? "Yes" : "No"}
+                            Rock Climbing: {rockClimbing ? "Yes" : "No"}
                         </span>
                     </li>
                     <li>
@@ -70,7 +75,7 @@ function ListingShowPage() {
                     <li>
                         <span className='info-category'>
                             <i class="fa-solid fa-horse"></i>
-                            Horseback Riding: {horseback_riding ? "Yes" : "No"}
+                            Horseback Riding: {horsebackRiding ? "Yes" : "No"}
                         </span>
                     </li>
                 </ul>

@@ -37,10 +37,20 @@
     border: 3px purple solid;
 }
 
+.listing-show-visuals-main img{
+    border-radius: 5px;
+}
+
+/* .listing-show-visuals-main{
+    
+} */
+
+
+
 
 .listing-show-section{
     margin: 20px;
-    display: flex; /* change the display to flex */
+    display: flex;
     /* justify-content: space-between; */
     border: 3px solid green;
 }

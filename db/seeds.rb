@@ -6,6 +6,9 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
+require 'open-uri'
+
+
 ApplicationRecord.transaction do 
     puts "Destroying tables..."
     # Unnecessary if using `rails db:seed:replant`
@@ -57,6 +60,18 @@ ApplicationRecord.transaction do
         latitude: Faker::Address.latitude
       })
     end
-  
+
+    
+    
     puts "Done!"
   end
+
+
+Listing.first(20).each_with_index do |listing, index|
+  listing.photo.attach(
+    # The string passed to URI.open should be the URL of the image in its bucket.
+    # This sample assumes the bucket name is `benchbnb-seeds`.
+    io: URI.open("https://venture-camp-seeds.s3.us-west-1.amazonaws.com/image#{index + 1}.jpg"), 
+    filename: "image#{index + 1}.jpg"
+  )
+end

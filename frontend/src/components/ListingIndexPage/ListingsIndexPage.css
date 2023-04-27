@@ -50,15 +50,24 @@
 
 
 .camp-list-item{
-    background-color: white;
+    /* background-color: white; */
     min-height: 250px;
-    border: 1px solid rgb(230,230,230);
+    /* border: 1px solid rgb(230,230,230); */
     border-radius: 5px;
     display: flex;
     flex-direction: column;
     position: relative;
     cursor: pointer;
+    width: 400px;
 }
+
+.camp-list-item img {
+    height: 200px;
+    width: 400px;
+    align-self: center;
+    object-fit: cover;
+    border-radius: 5px;
+  }
 
 .list-item-info{
     margin-top: auto;

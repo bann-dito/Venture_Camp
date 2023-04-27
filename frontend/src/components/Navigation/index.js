@@ -10,7 +10,8 @@ function Navigation(){
   const sessionUser = useSelector(state => state.session.user);
   const {id} = useParams()
   const location = useLocation();
-  console.log(location);
+
+  
   let sessionLinks;
   if (sessionUser) {
     sessionLinks = (
