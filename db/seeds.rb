@@ -34,7 +34,7 @@ ApplicationRecord.transaction do
 
     puts "Creating listings..."
     number = 0
-    10.times do
+    20.times do
       Listing.create!({
         host_id: 1,
         title: "test listing title: #{number += 1}",

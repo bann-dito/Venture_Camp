@@ -12,11 +12,11 @@ function CampListItem({camp}) {
             <h1>{camp.title}</h1>
                 <div className="list-item-fields">
                     <div className="info-field">
-                        <span className="list-item-heading">Location:</span>
-                        <span className="list-item-info">{camp.city},{camp.state}</span>
+                        {/* <span className="list-item-heading">Location:</span> */}
+                        <span className="list-item-info">{camp.city}, {camp.state}</span>
                     </div>
                     <div className="info-field">
-                        <span className="list-item-heading">Price:</span>
+                        {/* <span className="list-item-heading">Price:</span> */}
                         <span className="list-item-info">${camp.price}</span>
                     </div>
                 </div>
