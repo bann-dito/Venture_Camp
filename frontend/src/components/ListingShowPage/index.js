@@ -115,10 +115,10 @@ function ListingShowPage() {
                 </ul>
             </section>
             <section className='listing-show-map'>
-                <CampMap
-                    camps={[camp]}
-                    mapOptions={{ center: { lat: 37.7749, lng: -122.4194 }, zoom: 12 }}
-                />
+            <CampMap
+                camps={[camp]}
+                // mapOptions={{ center: { lat: latitude, lng: longitude }, zoom: 12 }}
+            />
             </section>
             <section className='listing-show-booking'>
                 <h2>Booking Goes Here</h2>
