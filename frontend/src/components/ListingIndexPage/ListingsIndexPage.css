@@ -58,16 +58,8 @@
     flex-direction: column;
     position: relative;
     cursor: pointer;
-    width: 400px;
+    margin-right: 1vw;
 }
-
-.camp-list-item img {
-    height: 200px;
-    width: 400px;
-    align-self: center;
-    object-fit: cover;
-    border-radius: 5px;
-  }
 
 .list-item-info{
     margin-top: auto;
@@ -75,6 +67,15 @@
 
 .list-item-info h1{
     margin-bottom: 2px;
+}
+
+.list-item-info img {
+    height: 200px;
+    /* height: 27vmin; */
+    width: 100%;
+    /* width: 400px; */
+    object-fit: cover;
+    border-radius: 5px;
 }
 
 
@@ -86,7 +87,6 @@
 .list-item-info{
     color: #1b1b1b;
     font-size: 12px;
-    opacity: 0.8;
     font-weight: 500;
     line-height: 20px;
     font-family: Calibre, Helvetica, Arial, sans-serif;
