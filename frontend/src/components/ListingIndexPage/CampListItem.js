@@ -6,7 +6,6 @@ function CampListItem({camp}) {
     const history = useHistory();
 
     const { title, city, state, price, photoUrl } = camp;
-    console.log(photoUrl)
 
     return(
         <div className="camp-list-item" onClick={() => history.push(`/listings/${camp.id}`)}>

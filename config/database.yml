@@ -81,6 +81,4 @@ test:
 #
 production:
   <<: *default
-  database: venture_camp_production
-  username: venture_camp
-  password: <%= ENV["VENTURE_CAMP_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>

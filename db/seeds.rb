@@ -64,7 +64,7 @@ ApplicationRecord.transaction do
     
     
     puts "Done!"
-  end
+end
 
 
 Listing.first(20).each_with_index do |listing, index|
