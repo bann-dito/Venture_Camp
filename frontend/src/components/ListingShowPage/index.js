@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchListing } from '../../store/listings';
+import CampMap from '../CampMap';
 import './ListingShowPage.css';
 
 
@@ -114,7 +115,10 @@ function ListingShowPage() {
                 </ul>
             </section>
             <section className='listing-show-map'>
-                <h2>Map Goes Here</h2>
+                <CampMap
+                    camps={[camp]}
+                    mapOptions={{ center: { lat: 37.7749, lng: -122.4194 }, zoom: 12 }}
+                />
             </section>
             <section className='listing-show-booking'>
                 <h2>Booking Goes Here</h2>
