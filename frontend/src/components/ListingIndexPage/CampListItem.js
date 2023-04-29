@@ -2,13 +2,19 @@ import React from "react";
 import { useHistory } from "react-router-dom";
 
 
-function CampListItem({camp}) {
+function CampListItem({camp, isHighlighted, setHighlightedCamp}) {
     const history = useHistory();
 
     const { title, city, state, price, photoUrl } = camp;
 
     return(
-        <div className="camp-list-item" onClick={() => history.push(`/listings/${camp.id}`)}>
+        <div 
+            className={"camp-list-item" + (isHighlighted ? " highlighted" : "")}
+            // className="camp-list-item"
+            onClick={() => history.push(`/listings/${camp.id}`)}
+            onMouseOver={() => setHighlightedCamp(camp.id)}
+            onMouseOut={() => setHighlightedCamp(null)}
+        >
 
             <div className="list-item-info">
             {photoUrl && <img src={photoUrl} alt='Camp'/>}
