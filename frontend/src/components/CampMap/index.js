@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Wrapper } from "@googlemaps/react-wrapper";
-import { useHistory } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import './CampMap.css';
 
 function CampMap({ camps, highlightedCamp, mapEventHandlers={}, markerEventHandlers={}, mapOptions={} }) {
@@ -10,98 +10,89 @@ function CampMap({ camps, highlightedCamp, mapEventHandlers={}, markerEventHandl
   const history = useHistory();
   const markers = useRef({});
 
-  console.log(map)
-  console.log(camps)
 
+  // Create the map
   useEffect(() => {
-      if (!map) {
-          setMap(new window.google.maps.Map(mapRef.current, {
-              center: { lat: camps.latitude, lng: camps.longitude },
-              zoom: 1,
-              clickableIcons: false,
-              ...mapOptions,
-              }));
-      }
+    if (!map) {
+      setMap(new window.google.maps.Map(mapRef.current, {
+        center: {
+          lat: 37.773972,
+          lng: -122.431297
+        }, // San Francisco coordinates
+        zoom: 13,
+        clickableIcons: false,
+        ...mapOptions,
+      }));
+    }
   }, [mapRef, map, mapOptions]);
 
-  // Update map markers whenever `camps` changes
+
+
+  // Update map markers whenever `benches` changes
   useEffect(() => {
+
     if (map) {
-      // Add markers for new camps
+      // Add markers for new benches
+
+      const bounds = new window.google.maps.LatLngBounds();
+
       camps.forEach((camp) => {
         if (markers.current[camp.id]) return;
-  
-        const marker = new window.google.maps.Marker({
-          map,
-          position: new window.google.maps.LatLng(camp.latitude, camp.longitude),
-          label: {
-            text: `$${camp.price.toString()}`,
+        const position = new window.google.maps.LatLng(camp.latitude, camp.longitude);
+        bounds.extend(position);
+        const marker = new window.google.maps.Marker({ 
+          map, 
+          position,
+          label: { 
+            text: `$${camp.price.toString()}`, 
             fontWeight: 'bold',
-            color: 'black',
-          },
-          icon: {
-            path: `
-              M 1,0
-              L 2,0
-              A 1 1 0 0 1 3,1
-              A 1 1 0 0 1 2,2
-              L 1,2
-              A 1 1 0 0 1 0,1
-              A 1 1 0 0 1 1,0
-              z
-            `,
-            fillOpacity: 1,
-            fillColor: 'white',
-            strokeColor: 'black',
-            strokeWeight: 1,
-            scale: 15,
-            labelOrigin: new window.google.maps.Point(1.5, 1),
-            anchor: new window.google.maps.Point(1.5, 1),
-          },
+            color: 'black'
+          }
         });
-  
+
+        
+
         Object.entries(markerEventHandlers).forEach(([event, handler]) => {
           marker.addListener(event, () => handler(camp));
         });
         markers.current[camp.id] = marker;
-      });
+      })
   
-      // Remove markers for old camps
+      // Remove markers for old benches
       Object.entries(markers.current).forEach(([campId, marker]) => {
-        if (camps.some((camp) => camp.id.toString() === campId)) return;
-  
+        if (camps.some(camp => camp.id.toString() === campId)) return;
+        
         marker.setMap(null);
         delete markers.current[campId];
-      });
-  
-      // Create a LatLngBounds object to include all markers
-      const bounds = new window.google.maps.LatLngBounds();
-      Object.values(markers.current).forEach((marker) => bounds.extend(marker.getPosition()));
-  
-      // Fit the map to show all markers
-      map.fitBounds(bounds);
+      })
+
+      // if(!params.id){
+      //   map.fitBounds(bounds);
+      // }
+
     }
   }, [camps, history, map, markerEventHandlers]);
 
-  // Change the style for camp marker on hover
-  // useEffect(() => {
-  //   Object.entries(markers.current).forEach(([campId, marker]) => {
-  //     const label = marker.getLabel();
-  //     const icon = marker.getIcon();
+  // Change the style for bench marker on hover
+  useEffect(() => {
+    Object.entries(markers.current).forEach(([campId, marker]) => {
+      const label = marker.getLabel();
+      const icon = marker.getIcon();
 
-  //     if (parseInt(campId) === highlightedCamp) {
-  //       marker.setLabel({ ...label, color: 'white' });
-  //       marker.setIcon({ ...icon, fillColor: 'black' });
-  //     } else {
-  //       marker.setLabel({ ...label, color: 'black' });
-  //       marker.setIcon({ ...icon, fillColor: 'white' });
-  //     }
-  //   });
-  // }, [markers, highlightedCamp]);
+      if (parseInt(campId) === highlightedCamp) {
+        marker.setLabel({ ...label, color: 'white' });
+        marker.setIcon({ ...icon, fillColor: 'black' });
+      } else {
+        marker.setLabel({ ...label, color: 'black' });
+        marker.setIcon({ ...icon, fillColor: 'white' });
+      }
+    });
+  }, [markers, highlightedCamp]);
+
 
   return (
     <div ref={mapRef} className="map">
-      Map
+      Map placeholder
     </div>
   );
 }

@@ -33,7 +33,7 @@ function ListingShowPage() {
         <div className='listing-show'>
             <div className="listing-show-header">
                 <Link to="/listings">
-                    <i class="fa-solid fa-circle-arrow-left"></i>
+                    <i className="fa-solid fa-circle-arrow-left"></i>
                 </Link>
                 <h1>{title}</h1>
             </div>
@@ -51,31 +51,31 @@ function ListingShowPage() {
                     <h3>Activities</h3>
                     <li>
                         <span className='info-category'> 
-                            <i class="fa-solid fa-person-hiking"></i>
+                            <i className="fa-solid fa-person-hiking"></i>
                             Hiking: {hiking ? "Yes" : "No"}
                         </span>
                     </li>
                     <li>
                         <span className='info-category'>
-                            <i class="fa-solid fa-person-biking"></i>
+                            <i className="fa-solid fa-person-biking"></i>
                             Biking: {biking ? "Yes" : "No"}
                         </span>
                     </li>
                     <li>
                         <span className='info-category'>
-                            <i class="fa-solid fa-mountain"></i>
+                            <i className="fa-solid fa-mountain"></i>
                             Rock Climbing: {rockClimbing ? "Yes" : "No"}
                         </span>
                     </li>
                     <li>
                         <span className='info-category'>
-                            <i class="fa-solid fa-fish"></i>
+                            <i className="fa-solid fa-fish"></i>
                             Fishing: {fishing ? "Yes" : "No"}
                         </span>
                     </li>
                     <li>
                         <span className='info-category'>
-                            <i class="fa-solid fa-horse"></i>
+                            <i className="fa-solid fa-horse"></i>
                             Horseback Riding: {horsebackRiding ? "Yes" : "No"}
                         </span>
                     </li>
@@ -84,31 +84,31 @@ function ListingShowPage() {
                     <h3>Amenities</h3>
                     <li>
                         <span className='info-category'>
-                            <i class="fa-solid fa-wifi"></i>
+                            <i className="fa-solid fa-wifi"></i>
                             WiFi: {wifi ? "Yes" : "No"}
                         </span>
                     </li>
                     <li>
                         <span className='info-category'>
-                            <i class="fa-solid fa-dog"></i>
+                            <i className="fa-solid fa-dog"></i>
                             Pets: {pets ? "Yes" : "No"} 
                         </span>
                     </li>
                     <li>
                         <span className='info-category'>
-                            <i class="fa-solid fa-toilet"></i>
+                            <i className="fa-solid fa-toilet"></i>
                             Toilet: {toilet ? "Yes": "No"}
                         </span>
                     </li>
                     <li>
                         <span className='info-category'>
-                            <i class="fa-solid fa-bath"></i>
+                            <i className="fa-solid fa-bath"></i>
                             Shower: {shower ? "Yes" : "No"}
                         </span>
                     </li>
                     <li>
                         <span className='info-category'>
-                            <i class="fa-solid fa-fire"></i>
+                            <i className="fa-solid fa-fire"></i>
                             Campfire: {campfire ? "Yes" : "No"}
                         </span>
                     </li>
@@ -117,7 +117,7 @@ function ListingShowPage() {
             <section className='listing-show-map'>
             <CampMap
                 camps={[camp]}
-                // mapOptions={{ center: { lat: latitude, lng: longitude }, zoom: 12 }}
+                mapOptions={{ center: { lat: latitude, lng: longitude }, zoom: 12 }}
             />
             </section>
             <section className='listing-show-booking'>

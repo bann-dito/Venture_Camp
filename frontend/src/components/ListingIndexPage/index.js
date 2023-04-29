@@ -10,7 +10,7 @@ function ListingIndexPage() {
     const dispatch = useDispatch();
     const history = useHistory();
     const camps = useSelector(state => Object.values(state.listings));
-    const [hightlightedCamp, setHighlightedCamp] = useState(null);
+    const [highlightedCamp, setHighlightedCamp] = useState(null);
     const [bounds, setBounds] = useState(null);
 
 
@@ -36,7 +36,7 @@ function ListingIndexPage() {
             </div>
             <div className="camp-index-map-container">
                 <CampMap camps={camps}
-                 hightlightedCamp={hightlightedCamp}
+                 highlightedCamp={highlightedCamp}
                  mapEventHandlers={mapEventHandlers}
                  markerEventHandlers={{
                     click: (camp) => history.push(`/listings/${camp.id}`),
