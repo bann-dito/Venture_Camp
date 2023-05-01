@@ -8,8 +8,10 @@ Rails.application.routes.draw do
     resources :users, only: :create
     resource :session, only: [:show, :create, :destroy]
     resources :listings, only: [:index, :show]
+    resources :reviews, only: [:create, :destroy, :index]
   end
 
+  # Catch-all route to serve up frontend files
   get '*path', to: 'static_pages#frontend', constraints: ->(request) {!request.xhr? && request.format.html?}
 
 end

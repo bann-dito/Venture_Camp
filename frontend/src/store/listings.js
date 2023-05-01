@@ -1,14 +1,17 @@
+import { addReviews } from "./reviews";
+import { addUsers } from "./users";
+
 import csrfFetch from "./csrf";
 
 const RECEIVE_LISTINGS = "listings/setListings";
 const RECEIVE_LISTING = "listings/setListing";
 
-const receiveListings = (listings) => ({
+export const receiveListings = (listings) => ({
     type: RECEIVE_LISTINGS,
     listings
 });
 
-const receiveListing = (listing) => ({
+export const receiveListing = (listing) => ({
     type: RECEIVE_LISTING,
     listing
 });
@@ -21,11 +24,11 @@ export const fetchListings = () => async (dispatch) => {
 
 export const fetchListing = (id) => async (dispatch) => {
     const response = await csrfFetch(`/api/listings/${id}`);
-    const {listing} = await response.json();
+    const {listing, users, reviews} = await response.json();
     dispatch(receiveListing(listing));
+    dispatch(addReviews(reviews));
+    dispatch(addUsers(users));
 }
-
-
 
 
 const listingsReducer = (state = {}, action) => {
