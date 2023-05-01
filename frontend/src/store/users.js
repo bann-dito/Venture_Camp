@@ -17,11 +17,13 @@ function userReducer(state = {}, action) {
     const newState = {...state};
     switch (action.type) {
         case ADD_USERS:
-            newState.users = action.users;
-            return newState;
+            // newState.users = action.users;
+            // return newState;
+            return {...newState, ...action.users }
         case ADD_USER:
-            newState.user = action.user;
-            return newState;
+            // newState.user = action.user;
+            // return newState;
+            return {...newState, [action.user.id]: action.user }
         default:
             return state;
     }

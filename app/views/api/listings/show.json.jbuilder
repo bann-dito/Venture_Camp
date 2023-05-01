@@ -10,6 +10,14 @@ end
 # end
 
 @listing.reviews.includes(:author).each do |review|
+
+    json.users do
+        json.set! review.author_id do
+            json.extract! review.author, :id, :username
+        end
+    end
+
+
     json.reviews do 
         json.set! review.id do
             json.extract! review, :id, :rating, :body, :listing_id, :author_id

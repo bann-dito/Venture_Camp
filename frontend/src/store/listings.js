@@ -24,10 +24,10 @@ export const fetchListings = () => async (dispatch) => {
 
 export const fetchListing = (id) => async (dispatch) => {
     const response = await csrfFetch(`/api/listings/${id}`);
-    const {listing} = await response.json();
+    const {listing, users, reviews} = await response.json();
     dispatch(receiveListing(listing));
-    dispatch(addReviews(listing.reviews));
-    dispatch(addUsers(listing.users));
+    dispatch(addReviews(reviews));
+    dispatch(addUsers(users));
 }
 
 
