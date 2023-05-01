@@ -133,6 +133,7 @@ function ListingShowPage() {
                 <h2>Booking Goes Here</h2>
             </section>
             <section className='listing-show-reviews'>
+
                 <h2>{reviews.length} Reviews - {average} Average</h2>
                 <div className='listing-review'>
                     {reviews.map(review => (

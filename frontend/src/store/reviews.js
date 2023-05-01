@@ -47,7 +47,7 @@ export const deleteReview = (reviewId) => async (dispatch) => {
         method: 'DELETE',
     });
     const data = await response.json();
-    dispatch(removeReview(data.reviewId));
+    dispatch(removeReview(data.review.id));
     dispatch(receiveListing(data.listing));
     return response;
 }
@@ -58,12 +58,8 @@ function reviewsReducer(state = {}, action) {
     const newState = {...state};
     switch (action.type) {
         case ADD_REVIEWS:
-            // newState.reviews = action.reviews;
-            // return newState;
             return {...newState, ...action.reviews}
         case ADD_REVIEW:
-            // newState.review = action.review;
-            // return newState;
             return {...newState, [action.review.id]: action.review}
         case REMOVE_REVIEW:
             delete newState[action.reviewId];
