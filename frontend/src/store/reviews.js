@@ -25,7 +25,7 @@ export const getListingReviews = (listingId) => state => {
     const reviews = Object.values(state.reviews);
     const filtered = reviews.filter(review => review.listingId === listingId);
     const mapped = filtered.map(review => ({
-        ...review, author: state.users[review.userId]?.username
+        ...review, author: state.users[review.authorId]?.username
     }));
     return mapped;
 }

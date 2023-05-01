@@ -3,7 +3,9 @@ import { useParams, Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchListing } from '../../store/listings';
 import CampMap from '../CampMap';
+import ReviewFormModal from '../ListingReview';
 import './ListingShowPage.css';
+import { getListingReviews, deleteReview } from '../../store/reviews';
 
 
 function ListingShowPage() {
@@ -11,6 +13,9 @@ function ListingShowPage() {
     const { id } = useParams();
 
     const camp = useSelector(state => state.listings[id]);
+    const sessionUser = useSelector(state => state.session.user);
+    const reviews = useSelector(getListingReviews(parseInt(id)));
+
 
     useEffect(() => {
         if(id) {
@@ -28,6 +33,10 @@ function ListingShowPage() {
         wifi, pets, toilet, shower, campfire,
         longitude, latitude, photoUrl
     } = camp;
+
+    const average = reviews.reduce((acc, review) => acc + review.rating, 0) / reviews.length;
+
+    const hasReviewed = sessionUser && reviews.some(review => review.authorId === sessionUser.id);
 
     return (
         <div className='listing-show'>
@@ -124,10 +133,25 @@ function ListingShowPage() {
                 <h2>Booking Goes Here</h2>
             </section>
             <section className='listing-show-reviews'>
-                <h2>Reviews Go Here</h2>
+                <h2>{reviews.length} Reviews - {average} Average</h2>
                 <div className='listing-review'>
-                    <h3>Review Title</h3>
+                    {reviews.map(review => (
+                        <div className="review" key={review.id}>
+                            <h3>Rating: {review.rating}</h3>
+                            <p>{review.author}</p>
+                            <p>{review.body}</p>
+                            {review.authorId === sessionUser?.id && (
+                                <button
+                                    className="delete-review"
+                                    onClick={() => dispatch(deleteReview(review.id))}
+                                >
+                                    <i className="fa-solid fa-rectangle-xmark" />
+                                </button>
+                            )}
+                        </div>
+                    ))}
                 </div>
+                {!hasReviewed && <ReviewFormModal listingId={id} />}
             </section>
         </div>
     )
