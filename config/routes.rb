@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     resource :session, only: [:show, :create, :destroy]
     resources :listings, only: [:index, :show]
     resources :reviews, only: [:create, :destroy, :index]
+    resources :bookings, only: [:create, :destroy, :index]
   end
 
   # Catch-all route to serve up frontend files
