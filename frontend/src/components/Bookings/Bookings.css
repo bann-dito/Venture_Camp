@@ -88,9 +88,12 @@
     padding: 10px;
 }
 
-
-
 .calendar-container{
     position: absolute;
     z-index: 2;
+}
+
+.No-bookings-image{
+    height: auto;
+    width: auto;
 }
