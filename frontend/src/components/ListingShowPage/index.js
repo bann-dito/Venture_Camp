@@ -6,6 +6,8 @@ import CampMap from '../CampMap';
 import ReviewFormModal from '../ListingReview';
 import './ListingShowPage.css';
 import { getListingReviews, deleteReview } from '../../store/reviews';
+import Bookings from '../Bookings';
+
 
 
 function ListingShowPage() {
@@ -123,14 +125,15 @@ function ListingShowPage() {
                     </li>
                 </ul>
             </section>
+            <section className='listing-show-booking'>
+                <h2>Booking Goes Here</h2>
+                <Bookings camp={camp} sessionUser={sessionUser}/>
+            </section>
             <section className='listing-show-map'>
             <CampMap
                 camps={[camp]}
                 mapOptions={{ center: { lat: latitude, lng: longitude }, zoom: 15 }}
             />
-            </section>
-            <section className='listing-show-booking'>
-                <h2>Booking Goes Here</h2>
             </section>
             <section className='listing-show-reviews'>
 

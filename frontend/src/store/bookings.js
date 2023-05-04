@@ -1,6 +1,5 @@
 import csrfFetch from "./csrf"
 
-
 const CREATE_BOOKING = 'bookings/CREATE_BOOKING'
 const GET_BOOKINGS = 'bookings/GET_BOOKINGS'
 const DELETE_BOOKING = 'bookings/DELETE_BOOKING'
@@ -31,9 +30,9 @@ export const createNewBooking = (booking) => async (dispatch) => {
         method: 'POST',
         body: JSON.stringify(booking)
     })
-    const {newBooking} = await res.json()
-    dispatch(createBooking(newBooking))
-    return newBooking
+    const data = await res.json()
+    dispatch(createBooking(data.booking))
+    return data
 }
 
 export const removeBooking = (bookingId) => async (dispatch) => {

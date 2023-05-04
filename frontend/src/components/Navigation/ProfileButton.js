@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from 'react-redux';
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import * as sessionActions from '../../store/session';
 
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
   const [iconClass, setIconClass] = useState("fa-solid fa-campground")
+  const history = useHistory();
   
   const openMenu = () => {
     setShowMenu(true);
@@ -37,6 +39,7 @@ function ProfileButton({ user }) {
       <ul className={`profile-dropdown ${showMenu ? 'show' : ''}`}>
         <li>{user.username}</li>
         <li>{user.email}</li>
+        <li onClick={() => history.push('/bookings')}> Bookings </li>
         <li>
           <button onClick={logout}>Log Out</button>
         </li>
