@@ -35,7 +35,7 @@ function BookingsShowPage() {
             <div className="No-bookings">
                 <h1>You haven't booked any trips yet</h1>
                 <h2>Click <a href="/listings">here</a> to find your next adventure!</h2>
-                <img src="/assets/SvgHeart.png" />
+                <img className="No-bookings-image" src="/assets/SvgHeart.png" />
             </div>
                 )}
         </>

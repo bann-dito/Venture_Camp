@@ -19,7 +19,7 @@ function HomePage(){
                     <div className="Home-Page-Card-Image-Container">
                         <img src="/assets/hipcamp-rei-save-a-spot.jpg" alt="camping" />
                     </div>
-                    <div className="Home-Page-Card-Info">
+                    <div className="Home-Page-Card-Info" id="Card-One">
                         <div className="Home-Page-Card-Text">
                             <h3>LONG WEEKEND</h3>
                             <p>Stay an extra a day for those summer weekends.</p>
@@ -31,12 +31,12 @@ function HomePage(){
                     <div className="Home-Page-Card-Image-Container">
                         <img src="/assets/campfire.jpg" alt="camping" />
                     </div>
-                    <div className="Home-Page-Card-Info">
+                    <div className="Home-Page-Card-Info" id="Card-Two">
                         <div className="Home-Page-Card-Text">
                             <h3>BEST OF 2023</h3>
                             <p>Californias best Venture Camps to visit in 2023.</p>
                         </div>
-                        <button className="Home-Page-Book-Now" onClick={() => history.push("/listings")}>Book Now</button>
+                        <button className="Home-Page-Book-Now" id="Button-Two"onClick={() => history.push("/listings")}>Book Now</button>
                     </div>
                 </div>
             </div>
@@ -45,20 +45,20 @@ function HomePage(){
                 <div className="Home-Page-Sub-Cards">
                     <div className="Sub-Card" onClick={() => history.push("/listings")}>
                         <div className="Sub-Card-Image-Container">
-                            <img src="/assets/Hot_Spring.jpg" alt="camping" />
-                            <button className="Sub-Card-Button"> Available Tonight </button>
+                            <img src="/assets/tonight.jpg" alt="camping" />
+                            <button className="Sub-Card-Button" id="Button-three"> Available Tonight </button>
+                        </div>
+                    </div>
+                    <div className="Sub-Card" onClick={() => history.push("/listings")}>
+                        <div className="Sub-Card-Image-Container">
+                            <img src="/assets/swim.jpg" alt="camping" />
+                            <button className="Sub-Card-Button" id="Button-four"> This Weekend </button>
                         </div>
                     </div>
                     <div className="Sub-Card" onClick={() => history.push("/listings")}>
                         <div className="Sub-Card-Image-Container">
                             <img src="/assets/Sequoia.jpg" alt="camping" />
-                            <button className="Sub-Card-Button"> Available Tonight </button>
-                        </div>
-                    </div>
-                    <div className="Sub-Card" onClick={() => history.push("/listings")}>
-                        <div className="Sub-Card-Image-Container">
-                            <img src="/assets/dog.jpg" alt="camping" />
-                            <button className="Sub-Card-Button"> Available Tonight </button>
+                            <button className="Sub-Card-Button" id="Button-five"> Next Weekend </button>
                         </div>
                     </div>
                 </div>

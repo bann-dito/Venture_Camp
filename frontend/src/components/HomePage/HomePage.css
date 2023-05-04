@@ -100,6 +100,14 @@
     height: 127px;
 }
 
+#Card-Two{
+    background-color: #2B3615;
+}
+
+#Button-Two{
+    color: #2B3615
+}
+
 .Home-Page-Card-Text{
     display: flex;
     flex-direction: column;
@@ -199,5 +207,15 @@
     flex-basis: 75%;
   }
 
+#Button-three{
+    background-color: #B18667
+}
 
+#Button-four{
+    background-color: #17807D
+}
+
+#Button-five{
+    background-color: #C0A583
+}
 
