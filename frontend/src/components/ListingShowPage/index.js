@@ -132,7 +132,7 @@ function ListingShowPage() {
             <section className='listing-show-map'>
             <CampMap
                 camps={[camp]}
-                mapOptions={{ center: { lat: latitude, lng: longitude }, zoom: 15 }}
+                mapOptions={{ center: { lat: latitude, lng: longitude }, zoom: 11 }}
             />
             </section>
             <section className='listing-show-reviews'>

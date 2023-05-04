@@ -27,7 +27,7 @@ function ListingIndexPage() {
             <div className="camp-index-map-container">
                 <CampMap camps={camps}
                  highlightedCamp={highlightedCamp}
-                 mapOptions={{ zoom: 12 }}
+                 mapOptions={{ zoom: 7 }}
                  markerEventHandlers={{
                     click: (camp) => history.push(`/listings/${camp.id}`),
                     mouseover: (camp) => setHighlightedCamp(camp.id),

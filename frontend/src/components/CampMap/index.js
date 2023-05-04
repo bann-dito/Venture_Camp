@@ -16,10 +16,10 @@ function CampMap({ camps, highlightedCamp, markerEventHandlers={}, mapOptions={}
     if (!map) {
       setMap(new window.google.maps.Map(mapRef.current, {
         center: {
-          lat: 37.773972,
-          lng: -122.431297
+          lat: 37.2426,
+          lng: -119.5828
         }, // San Francisco coordinates
-        zoom: 12,
+        zoom: 20,
         clickableIcons: false,
         ...mapOptions,
       }));
