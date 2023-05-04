@@ -36,6 +36,11 @@ has_many :reviews,
   class_name: :Review,
   dependent: :destroy
 
+has_many :bookings,
+  foreign_key: :user_id,
+  class_name: :Booking,
+  dependent: :destroy
+
 
   
 def self.find_by_credentials(credential, password)

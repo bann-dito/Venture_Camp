@@ -3,11 +3,13 @@ json.listing do
     # json.photo_url url_for(@listing.photo)
 end
 
-# json.users do
-#     json.set! review.author_id do
-#         json.extract! review.author, :id, :username
-#     end
-# end
+@listing.bookings.includes(:user).each do |booking|
+    json.users do
+        json.set! booking.user_id do
+            json.extract! booking.user, :id, :username
+        end
+    end
+end
 
 @listing.reviews.includes(:author).each do |review|
 

@@ -43,6 +43,11 @@ class Listing < ApplicationRecord
         class_name: :Review,
         dependent: :destroy,
         inverse_of: :listing
+
+    has_many :bookings,
+        foreign_key: :listing_id,
+        class_name: :Booking,
+        dependent: :destroy
     
     
     has_one_attached :photo

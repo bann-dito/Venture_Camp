@@ -4,8 +4,10 @@ import sessionReducer from './session';
 import listingsReducer from './listings';
 import userReducer from './users';
 import reviewsReducer from './reviews';
+import bookingsReducer from './bookings';
 import * as listingsActions from './listings';
 import * as reviewsActions from './reviews';
+import * as bookingsActions from './bookings';
 
 
 const rootReducer = combineReducers({
@@ -13,6 +15,7 @@ const rootReducer = combineReducers({
     listings: listingsReducer,
     users: userReducer,
     reviews: reviewsReducer,
+    bookings: bookingsReducer,
 })
 
 
@@ -23,6 +26,7 @@ if (process.env.NODE_ENV === 'production') {
 } else {
   window.listingsActions = listingsActions;
   window.reviewsActions = reviewsActions;
+  window.bookingsActions = bookingsActions;
   const logger = require('redux-logger').default;
   const composeEnhancers =
     window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

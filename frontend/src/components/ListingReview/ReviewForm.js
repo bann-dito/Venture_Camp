@@ -34,16 +34,9 @@ function ReviewForm({listingId}){
 
 
 
-    if (!sessionUser) return (
-        <>
-            <LoginFormModal />
-        </>
-    )
-
 
     return(
         <>
-            {!sessionUser }
             <div className='review-form-container'>
                 <form onSubmit={handleSubmit} className='review-form'>
                     <div className='review-form-header'>
