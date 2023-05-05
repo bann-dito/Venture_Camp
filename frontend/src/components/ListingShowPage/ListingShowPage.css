@@ -122,14 +122,14 @@
 .listing-show-section{
     margin: 20px;
     display: flex;
-    padding-bottom: 50px;
+    padding-bottom: 30px;
     /* justify-content: space-between; */
     /* border: 3px solid green; */
 }
 
 
 .listing-show-section p{
-    font-size: 14px;
+    font-size: 16px;
     font-weight: normal;
     margin-bottom: 10px;
     width: 750px;
@@ -176,12 +176,15 @@
     margin-right: 5px;
 }
 
+.info-category{
+    font-size: 14px;
+}
+
 
 .listing-show-map{
     margin: 20px;
     /* border: 3px solid pink; */
     height: 400px;
-    padding-bottom: 50px;
 }
 
 .listing-show-map h2{
@@ -261,6 +264,10 @@
     margin-bottom: 10px;
 }
 
+.review > p {
+    font-size: 12px;
+}
+
 .delete-review{
     color: red;
     position: relative;
@@ -273,5 +280,5 @@
 
 .section-break{
     border-top: 1px solid rgb(240, 239, 236);
-    padding-bottom: 40px;
+    padding-bottom: 20px;
 }
