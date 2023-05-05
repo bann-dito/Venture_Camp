@@ -54,17 +54,21 @@
     /* background-color: white; */
     min-height: 250px;
     /* border: 1px solid rgb(230,230,230); */
-    border-radius: 5px;
+    border-radius: 10px;
     display: flex;
     flex-direction: column;
     position: relative;
     cursor: pointer;
     margin-right: 1vw;
+    transition: transform 250ms;
+    margin-bottom: 12px;
 }
 
 .camp-list-item.highlighted{
-    background-color: red;
+    background-color: #e2e2e2;
     z-index: 5;
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px -10px rgba(0,0,0,0.7);
 }
 
 .list-item-info{
@@ -73,6 +77,11 @@
 
 .list-item-info h1{
     margin-bottom: 2px;
+    padding-left: 8px;
+}
+
+.list-item-fields {
+    padding-left: 8px;
 }
 
 .list-item-info img {
@@ -92,7 +101,7 @@
 
 .list-item-info{
     color: #1b1b1b;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 500;
     line-height: 20px;
     font-family: Calibre, Helvetica, Arial, sans-serif;

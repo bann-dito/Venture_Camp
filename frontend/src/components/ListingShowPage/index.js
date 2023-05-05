@@ -36,10 +36,32 @@ function ListingShowPage() {
         longitude, latitude, photoUrl
     } = camp;
 
+    let imagePath;
+
+    if (title === 'Death Valley National Park') {
+        imagePath = "death-valley"
+    } else if (title === 'Channel Islands National Park') {
+        imagePath = "channel-islands"
+    } else if (title === 'Joshua Tree National Park') {
+        imagePath = "joshua-tree"
+    } else if (title === 'Kings Canyon National Park') {
+        imagePath = "kings-canyon"
+    } else if (title === 'Lassen Volcanic National Park') {
+        imagePath = "lassen-volcanic"
+    } else if (title === 'Pinnacles National Park') {
+        imagePath = "pinnacles"
+    } else if (title === 'Redwood National Park') {
+        imagePath = "redwood"
+    } else if (title === 'Sequoia National Park') {
+        imagePath = "sequoia-national"
+    } else if (title === 'Yosemite National Park') {
+        imagePath = "yosemite"
+    }
+
     const average = reviews.reduce((acc, review) => acc + review.rating, 0) / reviews.length;
 
     const hasReviewed = sessionUser && reviews.some(review => review.authorId === sessionUser.id);
-
+    // frontend/public/assets/Death Valley National Park.jpg
     return (
         <div className='listing-show'>
             <div className="listing-show-header">
@@ -50,11 +72,11 @@ function ListingShowPage() {
             </div>
             <div className='listing-show-visuals'>
                 <div className='listing-show-visuals-main'>
-                    {photoUrl && <img src={photoUrl} alt='Camp'/>}
+                    <img src={`/assets/${imagePath}.jpg`} alt='Camp'/>
                 </div>
-                <div className='listing-show-visuals-sub'>
+                {/* <div className='listing-show-visuals-sub'>
                     <h1>SUB Photos</h1>
-                </div>
+                </div> */}
             </div>
             <section className="listing-show-section">
                 <p>{description}</p>
@@ -141,8 +163,8 @@ function ListingShowPage() {
                 <div className='listing-review'>
                     {reviews.map(review => (
                         <div className="review" key={review.id}>
-                            <h3>Rating: {review.rating}</h3>
-                            <p>{review.author}</p>
+                            <h2>Rating: {review.rating}</h2>
+                            <h3>{review.author}</h3>
                             <p>{review.body}</p>
                             {review.authorId === sessionUser?.id && (
                                 <button
