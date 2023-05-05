@@ -40,7 +40,7 @@ function Bookings({camp, sessionUser}) {
       }));
     };
 
-    console.log(bookingDetails)
+    // console.log(bookingDetails)
   
     const handleSubmit = (e) => {
       e.preventDefault();

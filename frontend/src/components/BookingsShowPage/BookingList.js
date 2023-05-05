@@ -10,7 +10,7 @@ function BookingList({booking}) {
     const history = useHistory();
     const { id, listingId, checkIn, checkOut, numGuests } = booking;
     const camp = useSelector(state => state.listings[listingId])
-    console.log(camp?.title)
+    // console.log(camp?.title)
     const title = camp?.title
     // console.log(title)
 

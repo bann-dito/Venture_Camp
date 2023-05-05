@@ -19,7 +19,7 @@ function BookingsShowPage() {
         return <Redirect to="/"/>
     }
 
-    console.log(bookings)
+    // console.log(bookings)
 
     return (
         <>

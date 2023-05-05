@@ -177,7 +177,7 @@ function ListingShowPage() {
             <section className='listing-show-reviews'>
                 <div className='section-break'></div>
                 <h2> 
-                    <i class="fa-solid fa-thumbs-up"></i>
+                    <i className="fa-solid fa-thumbs-up"></i>
                     {(average / 5) * 100 }% 
                 </h2>
                 <h3>{reviews.length} Reviews</h3>
