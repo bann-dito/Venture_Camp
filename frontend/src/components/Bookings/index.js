@@ -40,7 +40,7 @@ function Bookings({camp, sessionUser}) {
       }));
     };
 
-    console.log(bookingDetails)
+    // console.log(bookingDetails)
   
     const handleSubmit = (e) => {
       e.preventDefault();
@@ -53,7 +53,7 @@ function Bookings({camp, sessionUser}) {
         <div className="Booking-selector-container">
           <BookingDates onChange={handleBookingDatesChange} />
           <BookingGuest onChange={handleBookingGuestChange} />
-          <button className="Book-button" onClick={(e) => handleSubmit(e)}>Book!</button>
+          <button className="Book-button" onClick={(e) => handleSubmit(e)}>Reserve</button>
         </div>
       </>
     );

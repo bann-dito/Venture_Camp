@@ -27,7 +27,7 @@ header.site-header {
 div.session-links {
     display: flex;
     align-items: center;
-    z-index: 2;
+    /* z-index: 2; */
 }
 
 div.session-links > * {
@@ -145,4 +145,7 @@ div.session-links > .login-nav:hover:before {
     position: relative;
 }
   
+.socials > i {
+    font-size: 31px;
+}
 

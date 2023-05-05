@@ -182,7 +182,7 @@ ApplicationRecord.transaction do
         toilet: Faker::Boolean.boolean,
         shower: Faker::Boolean.boolean,
         campfire: Faker::Boolean.boolean,
-        price: rand(100..500),
+        price: rand(100..175),
       })
       
       reviews[i].each do |review|
