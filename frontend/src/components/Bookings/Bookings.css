@@ -70,9 +70,9 @@
 
 .Book-button{
     align-items: center;
-    background-color: #00c585;
+    background-color: #9f3f24;
     border: 1px solid transparent;
-    border-radius: 100px;
+    border-radius: 8px;
     box-sizing: border-box;
     color: #fff;
     display: flex;
