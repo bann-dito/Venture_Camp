@@ -31,10 +31,10 @@ function Navigation(){
       <NavLink exact to="/" className="nav-title" >
         <h1>VENTURE CAMP</h1>
       </NavLink>
-      <a className='socials' href='https://www.linkedin.com/in/eduardobacsierra/'>  
+      <a className='socials' href='https://www.linkedin.com/in/eduardobacsierra/' target="_blank">  
         <i className="fa-brands fa-linkedin" style={{color: "#0a66c2"}}></i>
       </a>
-      <a className='socials' href='https://github.com/bann-dito'>
+      <a className='socials' href='https://github.com/bann-dito' target="_blank">
         <i className="fa-brands fa-github" style={{color: "#0a0a0b"}}></i>
       </a>
       <div className="session-links">
