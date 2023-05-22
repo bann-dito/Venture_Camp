@@ -188,12 +188,19 @@ function ListingShowPage() {
                             <h2>{review.author}</h2>
                             <p>{review.body}</p>
                             {review.authorId === sessionUser?.id && (
-                                <button
-                                    className="delete-review"
-                                    onClick={() => dispatch(deleteReview(review.id))}
-                                >
-                                    <i className="fa-solid fa-rectangle-xmark" />
-                                </button>
+                                <>
+                                    <button
+                                        className="delete-review"
+                                        onClick={() => dispatch(deleteReview(review.id))}
+                                    >
+                                        <i className="fa-solid fa-rectangle-xmark" />
+                                    </button>
+                                    <button 
+                                        className='edit-review-button'
+                                    >
+                                        <i class="fa-solid fa-pen-to-square"></i>
+                                    </button>
+                                </>
                             )}
                         </div>
                     ))}

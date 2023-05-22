@@ -13,6 +13,15 @@ class Api::ReviewsController < ApplicationController
         
     end
 
+    def update
+        @review = current_user.reviews.find(params[:id])
+        if @review.update(review_params)
+            render :show
+        else
+            render json: {errors: @review.errors.full_messages}, status: :unprocessable_entity
+        end
+    end
+
 
     def destroy
 
