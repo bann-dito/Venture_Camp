@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Modal } from "../../context/Modal";
 import UpdateReviewForm from "./UpdateReviewForm";
+import './ListingReview.css';
 
 
 function UpdateReview ({review}) {

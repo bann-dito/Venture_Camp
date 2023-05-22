@@ -85,3 +85,12 @@
 .review-form button[type="submit"]:hover {
     background-color: #00a26a;
 }
+
+.edit-review-button{
+    cursor: pointer;
+    color: rgb(0, 197, 133);
+}
+
+.edit-review-button:hover{
+    color: #00a26a;
+}

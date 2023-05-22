@@ -270,8 +270,6 @@
 
 .delete-review{
     color: red;
-    position: relative;
-    left: 45%;
 }
 
 .delete-review:hover{
@@ -302,4 +300,13 @@
 
 .review-button:hover{
     background-color: #9f3f24;
+}
+
+.review-buttons{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 2.2vh;
 }
