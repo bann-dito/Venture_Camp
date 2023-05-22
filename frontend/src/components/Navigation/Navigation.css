@@ -109,6 +109,7 @@ div.session-links > .login-nav:hover:before {
     transform-origin: top;
     transition: all 0.3s ease-in-out;
     width: 200px;
+    z-index: 2;
 }
 
 .profile-dropdown li {
