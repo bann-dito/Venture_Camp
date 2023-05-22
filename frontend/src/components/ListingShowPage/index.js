@@ -7,6 +7,7 @@ import ReviewFormModal from '../ListingReview';
 import './ListingShowPage.css';
 import { getListingReviews, deleteReview } from '../../store/reviews';
 import Bookings from '../Bookings';
+import UpdateReview from '../ListingReview/UpdateReview';
 
 
 
@@ -195,11 +196,7 @@ function ListingShowPage() {
                                     >
                                         <i className="fa-solid fa-rectangle-xmark" />
                                     </button>
-                                    <button 
-                                        className='edit-review-button'
-                                    >
-                                        <i class="fa-solid fa-pen-to-square"></i>
-                                    </button>
+                                    <UpdateReview review={review}/>
                                 </>
                             )}
                         </div>
