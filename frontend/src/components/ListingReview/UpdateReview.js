@@ -11,7 +11,7 @@ function UpdateReview ({review}) {
     return (
         <>
             <button onClick={() => setShowModal(true)} className='edit-review-button'>
-                <i class="fa-solid fa-pen-to-square"></i>
+                <i className="fa-solid fa-pen-to-square"></i>
             </button>
             {showModal && (
                 <Modal onClose={() => setShowModal(false)}>

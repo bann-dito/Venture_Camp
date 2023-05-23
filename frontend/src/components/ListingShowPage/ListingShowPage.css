@@ -241,10 +241,11 @@
     grid-template-columns: 1fr 1fr;
     display: grid;
     grid-gap: 20px;
+    /* padding-left: 6%; */
 }
 
 .review {
-    min-height: 100px;
+    min-height: 78px;
     border: 1px solid rgb(230,230,230);
     border-radius: 10px;
     padding: 10px;
@@ -253,7 +254,7 @@
     position: relative;
     background-color: #fff;
     box-shadow: 0 1px 2px rgba(0,0,0,.1);
-    margin-right: 70px;
+    margin-right: 16px;
 }
 
 .review > h2 {
@@ -265,11 +266,16 @@
 }
 
 .review > p {
-    font-size: 12px;
+    font-size: 14px;
+    line-height: 20px;
 }
 
 .delete-review{
     color: red;
+}
+
+.delete-review:hover{
+    color: rgb(163, 0, 0);
 }
 
 .delete-review:hover{
@@ -305,8 +311,14 @@
 .review-buttons{
     display: flex;
     justify-content: space-between;
-    padding-top: 20px;
-    padding-left: 20px;
-    padding-right: 20px;
-    font-size: 2.2vh;
+    width: 10%;
+}
+
+.review-card-heading{
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 24px;
+    margin-bottom: 10px;
 }

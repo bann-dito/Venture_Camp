@@ -1,6 +1,6 @@
 import {receiveListing} from "./listings";
 import csrfFetch from './csrf';
-import {addUsers} from "./users";
+import {addUser} from "./users";
 
 const ADD_REVIEWS = "reviews/ADD_REVIEWS";
 const ADD_REVIEW = "reviews/ADD_REVIEW";
@@ -44,7 +44,7 @@ export const createReview = (review) => async (dispatch) => {
     const data = await response.json();
     dispatch(addReview(data.review));
     dispatch(receiveListing(data.listing));
-    dispatch(addUsers(data.users));
+    dispatch(addUser(data.user));
     return response;
 }
 

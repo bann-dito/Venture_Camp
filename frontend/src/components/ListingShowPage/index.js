@@ -94,7 +94,7 @@ function ListingShowPage() {
             </div>
             
             <section className="listing-show-section">
-                <p>{description}</p>
+                <p>{camp?.description}</p>
                 <ul>
                     <h3>Activities</h3>
                     <li>
@@ -186,19 +186,21 @@ function ListingShowPage() {
                     {reviews.map(review => (
                         <div className="review" key={review.id}>
                             {/* <h2>Rating: {review.rating}</h2> */}
-                            <h2>{review.author}</h2>
-                            <p>{review.body}</p>
-                            {review.authorId === sessionUser?.id && (
-                                <div className='review-buttons'>
-                                    <UpdateReview review={review}/>
-                                    <button
-                                        className="delete-review"
-                                        onClick={() => dispatch(deleteReview(review.id))}
-                                    >
-                                        <i className="fa-solid fa-rectangle-xmark" />
-                                    </button>
-                                </div>
-                            )}
+                            <div className='review-card-heading'>
+                                <h2>{review?.author}</h2>
+                                {review.authorId === sessionUser?.id && (
+                                    <div className='review-buttons'>
+                                        <UpdateReview review={review}/>
+                                        <button
+                                            className="delete-review"
+                                            onClick={() => dispatch(deleteReview(review.id))}
+                                        >
+                                            <i className="fa-solid fa-trash"></i>
+                                        </button>
+                                    </div>
+                                )}
+                            </div>
+                            <p>{review?.body}</p>
                         </div>
                     ))}
                 </div>
