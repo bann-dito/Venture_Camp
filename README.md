@@ -14,6 +14,7 @@ Venture Camp, an online market place clone of the popular site, [HipCamp](https:
 - React / Redux
 - JavaScript / JBuilder
 - React Calendar Library
+- AWS S3
 - Google API
 
 ## Features
@@ -23,9 +24,13 @@ Venture Camp is built with complete user authentication that comprises of User S
 
 **Listings Index**
 
-**Listing Booking**
+Venture Camp features a listing index page that show cases each of unique and adventerous national parks in California. Users can browse through each of the listings to learn more about them!
 
-**Listing Review**
+**Booking**
+Users can visiting a listing and book directly on the booking, if the user does not fill in the form correctly, error will prompt the user appropiately!
+
+**Review**
+Users can also leave reviews detailing their experiences. If the users have second thoughts about the review that they left, they can update their review.
 
 ## Code Highlights
 
@@ -34,24 +39,3 @@ Venture Camp is built with complete user authentication that comprises of User S
 ```js
 place holder
 ```
-
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
