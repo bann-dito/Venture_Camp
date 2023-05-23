@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
-import { createNewBooking } from "../../store/bookings";
-import { useState } from "react";
+import { createNewBooking, updateBooking } from "../../store/bookings";
+import { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { Modal } from "../../context/Modal";
 import LoginForm from "../SessionForms/LoginForm";
@@ -11,19 +11,21 @@ import './Bookings.css'
 
 
 
-function Bookings({camp, sessionUser}) {
+function Bookings({camp, sessionUser, isEditing, bookingId}) {
     const dispatch = useDispatch();
     const history = useHistory();
     const [showModal, setShowModal] = useState(false);
-
+    // const [isEditing, setIsEditing] = useState(false);
 
     const [bookingDetails, setBookingDetails] = useState({
         checkIn: null,
         checkOut: null,
         numGuests: 1,
         userId: sessionUser ? sessionUser.id : null,
-        listingId: camp.id
+        listingId: camp?.id,
     });
+
+    console.log(camp.id)
   
     const handleBookingDatesChange = (checkIn, checkOut) => {
         setBookingDetails((prevBookingDetails) => ({
@@ -40,12 +42,16 @@ function Bookings({camp, sessionUser}) {
       }));
     };
 
-    // console.log(bookingDetails)
+    console.log(bookingDetails)
   
     const handleSubmit = (e) => {
       e.preventDefault();
+      if (isEditing){
+        dispatch(updateBooking({booking: bookingDetails}, bookingId));
+      } else {
         dispatch(createNewBooking({booking: bookingDetails}));
         history.push("/bookings");
+      }
     };
   
     return (

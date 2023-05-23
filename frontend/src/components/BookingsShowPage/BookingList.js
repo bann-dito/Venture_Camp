@@ -45,7 +45,8 @@ function BookingList({booking}) {
                     </div>
                 </li>
                 <li>
-                    <div className="Bookings-info-container">
+                    {/* <div className="Bookings-info-container"> */}
+                    <div className='Bookings-list-container'>
                         <BookingListItem booking={booking}/>
                     </div>
                 </li>

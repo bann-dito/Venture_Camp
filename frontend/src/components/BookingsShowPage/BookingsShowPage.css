@@ -61,6 +61,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
 }
 
 .Bookings-info-container {
@@ -85,21 +86,22 @@
 }
 
 .Booking-info-right button {
-    padding: 20px;
-    margin:30px 30px 0 30px;
+    padding: 18px;
+    margin:30px 27px 0 18px;
 }
 
 .Booking-title{
-    padding: 15px;
-    font-size: 24px;
-    font-weight: 500;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-size: 22px;
+    font-weight: 550;
 }
 
 .Booking-location, .Booking-date, .Booking-guest{
     line-height: 24px;
 }
 
-.Booking-delete-button{
+/* .Booking-delete-button{ */
     /* background-color: rgb(0, 197, 133);
     border-width: 2px;
     border-color: black 2px solid; */
@@ -107,15 +109,46 @@
     border-radius: 5px;
     font-size: 13px; */
     /* font-weight: bold; */
-    border-width: 2px;
+    /* border-width: 2px;
     border-style: outset;
     border-color: rgb(0, 197, 133);
     border-radius: 5px;
     background-color: rgb(0, 197, 133);
     font-size: 13px;
 
+} */
+
+/* .Booking-delete-button:hover{
+    background-color: #00a26a;
+} */
+
+/* .Booking-edit-button{
+    border-width: 2px;
+    border-style: outset;
+    border-color: rgb(0, 197, 133);
+    border-radius: 5px;
+    background-color: rgb(0, 197, 133);
+    font-size: 13px;
+    width: 90px;
+    cursor: pointer;
+    
+} */
+
+/* .Booking-edit-button:hover{
+    background-color: #00a26a;
+} */
+
+.booking-change-buttons button{
+    border-width: 2px;
+    border-style: outset;
+    border-color: rgb(0, 197, 133);
+    border-radius: 5px;
+    background-color: rgb(0, 197, 133);
+    font-size: 13px;
+    width: 90px;
+    cursor: pointer;
 }
 
-.Booking-delete-button:hover{
+.booking-change-buttons button:hover{
     background-color: #00a26a;
 }

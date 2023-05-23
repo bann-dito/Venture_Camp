@@ -41,8 +41,8 @@ export const createNewBooking = (booking) => async (dispatch) => {
     return data
 }
 
-export const updateBooking = (booking) => async (dispatch) => {
-    const res = await csrfFetch(`/api/bookings/${booking.id}`, {
+export const updateBooking = (booking, bookingId) => async (dispatch) => {
+    const res = await csrfFetch(`/api/bookings/${bookingId}`, {
         method: 'PATCH',
         body: JSON.stringify(booking)
     });
