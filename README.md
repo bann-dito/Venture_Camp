@@ -18,6 +18,7 @@ Venture Camp, an online market place clone of the popular site, [HipCamp](https:
 
 ## Features
 **User Authentication**
+
 Venture Camp is built with complete user authentication that comprises of User Sign Up, User Login and Demo User Login, and error handling for incorrect/incomplete enteries. Users are prompted to login when performing require user actions
 
 **Listings Index**
