@@ -14,7 +14,8 @@
 class Booking < ApplicationRecord
 
     validates :user_id, :listing_id, :check_in, :check_out, presence: true
-    validates :num_guests, presence: true, inclusion: { in: (1..10) }
+    # validates :num_guests, presence: true, inclusion: { in: (1..10) }
+    validate :check_num_guests
     validate :check_in_before_check_out
     validate :booking_overlap
 
@@ -25,6 +26,16 @@ class Booking < ApplicationRecord
     belongs_to :listing,
         foreign_key: :listing_id,
         class_name: :Listing
+
+
+
+    def check_num_guests
+        if num_guests.present? && num_guests < 1
+            errors.add(:base, "there must be at least 1 guest")
+        elsif num_guests.present? && num_guests > 10
+            errors.add(:base, "there is a maximum of 10 guests")
+        end
+    end
 
 
     def booking_overlap
@@ -38,7 +49,11 @@ class Booking < ApplicationRecord
 
 
     def check_in_before_check_out
-        if check_in >= check_out
+        if check_in.nil?
+            errors.add(:base, "check in date cannot be blank")
+        elsif check_out.nil?
+            errors.add(:base, "check out date cannot be blank")
+        elsif check_in >= check_out
             errors.add(:base, "check in must be before check out")
         end
     end

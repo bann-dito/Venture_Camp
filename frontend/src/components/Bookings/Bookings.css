@@ -104,3 +104,9 @@
     height: auto;
     width: auto;
 }
+
+.booking-errors{
+    color: red;
+    font-size: 12px;
+    margin-top: 10px;
+}
