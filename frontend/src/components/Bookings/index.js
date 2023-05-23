@@ -61,7 +61,7 @@ function Bookings({camp, sessionUser, isEditing, bookingId}) {
               data = await res.text(); // Will hit this case if the server is down
             }
             if (data?.errors) setErrors(data.errors);
-            else if (data) setErrors([data]);
+            else if (data) setErrors(data);
             else setErrors([res.statusText]);
           }); 
         } else {
@@ -75,7 +75,7 @@ function Bookings({camp, sessionUser, isEditing, bookingId}) {
                 data = await res.text();
               }
               if (data?.errors) setErrors(data.errors);
-              else if (data) setErrors([data]);
+              else if (data) setErrors(data);
               else setErrors([res.statusText]);
             });
           }
@@ -85,9 +85,9 @@ function Bookings({camp, sessionUser, isEditing, bookingId}) {
     return (
       <>
         {console.log(errors)}
-        <ul>
-          {errors.map((error) => (
-            <li className="booking-errors" key={error}>{error}</li>
+        <ul className="booking-errors-list">
+          {errors.map((error, index) => (
+            <li className="booking-errors" key={index}>{error}</li>
           ))}
         </ul>
         <div className="Booking-selector-container">

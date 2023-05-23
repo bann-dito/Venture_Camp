@@ -105,6 +105,10 @@
     width: auto;
 }
 
+.booking-errors-list{
+    padding-left: 10px;
+}
+
 .booking-errors{
     color: red;
     font-size: 12px;
