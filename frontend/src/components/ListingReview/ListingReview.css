@@ -18,13 +18,13 @@
     text-align-last: left;
 }
 
-.review-form-header {
+.review-form-header, .update-review-form-header {
     text-align: left;
     margin-bottom: 40px;
     align-self: flex-start;
 }
 
-.review-form-header h1 {
+.review-form-header h1 , .update-review-form-header h1 {
     margin-bottom: 12px;
     color: rgb(40, 64, 12);
     font-weight: 700;
@@ -33,7 +33,7 @@
     font-size: 36px;
 }
 
-.review-form-header p {
+.review-form-header p , .update-review-form-header p {
     color: rgb(60, 60, 60);
     font-size: 13px;
     font-weight: 400;
@@ -84,4 +84,13 @@
 
 .review-form button[type="submit"]:hover {
     background-color: #00a26a;
+}
+
+.edit-review-button{
+    cursor: pointer;
+    color: rgb(0, 197, 133);
+}
+
+.edit-review-button:hover{
+    color: #00a26a;
 }
