@@ -1,7 +1,39 @@
-# README
+# Venture Camp 🏕
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Venture Camp, an online market place clone of the popular site, [HipCamp](https://www.hipcamp.com/en-US). Users can book listings and leave reviews and ratings about their experience for others to read!
+
+[Check it out here!](https://venture-camp.herokuapp.com/) 👈
+
+## Table Of Contents 📈
+1. [Technologies](#technologies)
+2. [Features](#features)
+3. [Code Highlights](#code-highlights)
+
+## Technologies ⚙
+- Ruby on Rails
+- React / Redux
+- JavaScript / JBuilder
+- React Calendar Library
+- Google API
+
+## Features 🌟
+**User Authentication**
+
+
+**Listings Index**
+
+**Listing Booking**
+
+**Listing Review**
+
+## Code Highlights 💻
+
+### Bookings
+- The below code highlights if a user is creating a new booking or editing an exisiting booking, if the user is logged in and setting errors to local state.
+```js
+place holder
+```
+
 
 Things you may want to cover:
 
