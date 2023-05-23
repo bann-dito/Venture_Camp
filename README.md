@@ -27,9 +27,11 @@ Venture Camp is built with complete user authentication that comprises of User S
 Venture Camp features a listing index page that show cases each of unique and adventerous national parks in California. Users can browse through each of the listings to learn more about them!
 
 **Booking**
+
 Users can visiting a listing and book directly on the booking, if the user does not fill in the form correctly, error will prompt the user appropiately!
 
 **Review**
+
 Users can also leave reviews detailing their experiences. If the users have second thoughts about the review that they left, they can update their review.
 
 ## Code Highlights
