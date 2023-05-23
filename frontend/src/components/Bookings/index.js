@@ -15,6 +15,7 @@ function Bookings({camp, sessionUser, isEditing, bookingId}) {
     const dispatch = useDispatch();
     const history = useHistory();
     const [showModal, setShowModal] = useState(false);
+    const [errors, setErrors] = useState([]);
     // const [isEditing, setIsEditing] = useState(false);
 
     const [bookingDetails, setBookingDetails] = useState({
@@ -44,20 +45,51 @@ function Bookings({camp, sessionUser, isEditing, bookingId}) {
 
     const handleSubmit = (e) => {
       e.preventDefault();
+      setErrors([]);
       if (!sessionUser){
         setShowModal(true);
       } else {
         if (isEditing){
-          dispatch(updateBooking({booking: bookingDetails}, bookingId));
+          dispatch(updateBooking({booking: bookingDetails}, bookingId))
+          //How can I setup error handling for this booking update?
+          .catch(async (res) => {
+            let data;
+            try {
+              // .clone() essentially allows you to read the response body twice
+              data = await res.clone().json();
+            } catch {
+              data = await res.text(); // Will hit this case if the server is down
+            }
+            if (data?.errors) setErrors(data.errors);
+            else if (data) setErrors(data);
+            else setErrors([res.statusText]);
+          }); 
         } else {
-          dispatch(createNewBooking({booking: bookingDetails}));
-          history.push("/bookings");
-        }
+          dispatch(createNewBooking({booking: bookingDetails}))
+            .then(() => history.push("/bookings"))
+            .catch(async (res) => {
+              let data;
+              try {
+                data = await res.clone().json();
+              } catch {
+                data = await res.text();
+              }
+              if (data?.errors) setErrors(data.errors);
+              else if (data) setErrors(data);
+              else setErrors([res.statusText]);
+            });
+          }
       }
     };
   
     return (
       <>
+        {console.log(errors)}
+        <ul className="booking-errors-list">
+          {errors.map((error, index) => (
+            <li className="booking-errors" key={index}>{error}</li>
+          ))}
+        </ul>
         <div className="Booking-selector-container">
           <BookingDates onChange={handleBookingDatesChange} />
           <BookingGuest onChange={handleBookingGuestChange} />
