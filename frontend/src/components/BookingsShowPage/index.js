@@ -7,7 +7,7 @@ import './BookingsShowPage.css'
 
 function BookingsShowPage() {
     const dispatch = useDispatch();
-    const bookings = useSelector(state => Object.values(state.bookings))
+    const bookings = useSelector(state => Object.values(state.bookings).sort((a, b) => new Date(a.checkIn) - new Date(b.checkIn)));
     const sessionUser = useSelector(state => state.session.user);
     
     
@@ -18,9 +18,7 @@ function BookingsShowPage() {
     if (!sessionUser) {
         return <Redirect to="/"/>
     }
-
-    // console.log(bookings)
-
+    
     return (
         <>
         

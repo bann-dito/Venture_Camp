@@ -2,6 +2,7 @@ import csrfFetch from "./csrf"
 
 const CREATE_BOOKING = 'bookings/CREATE_BOOKING'
 const GET_BOOKINGS = 'bookings/GET_BOOKINGS'
+const EDIT_BOOKING = 'bookings/EDIT_BOOKING'
 const DELETE_BOOKING = 'bookings/DELETE_BOOKING'
 
 export const getBookings = (bookings) => ({
@@ -11,6 +12,11 @@ export const getBookings = (bookings) => ({
 
 export const createBooking = (booking) => ({
     type: CREATE_BOOKING,
+    booking
+})
+
+export const editBooking = (booking) => ({
+    type: EDIT_BOOKING,
     booking
 })
 
@@ -35,6 +41,16 @@ export const createNewBooking = (booking) => async (dispatch) => {
     return data
 }
 
+export const updateBooking = (booking, bookingId) => async (dispatch) => {
+    const res = await csrfFetch(`/api/bookings/${bookingId}`, {
+        method: 'PATCH',
+        body: JSON.stringify(booking)
+    });
+    const data = await res.json()
+    dispatch(editBooking(data.booking))
+    return data
+}
+
 export const removeBooking = (bookingId) => async (dispatch) => {
     const res = await csrfFetch(`/api/bookings/${bookingId}`, {
         method: 'DELETE'
@@ -50,6 +66,8 @@ const bookingsReducer = (state = {}, action) => {
         case GET_BOOKINGS:
             return {...newState, ...action.bookings}
         case CREATE_BOOKING:
+            return {...newState, [action.booking.id]: action.booking}
+        case EDIT_BOOKING:
             return {...newState, [action.booking.id]: action.booking}
         case DELETE_BOOKING:
             delete newState[action.bookingId]
