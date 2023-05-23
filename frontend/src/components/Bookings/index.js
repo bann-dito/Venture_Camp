@@ -25,7 +25,6 @@ function Bookings({camp, sessionUser, isEditing, bookingId}) {
         listingId: camp?.id,
     });
 
-    console.log(camp.id)
   
     const handleBookingDatesChange = (checkIn, checkOut) => {
         setBookingDetails((prevBookingDetails) => ({
@@ -41,16 +40,19 @@ function Bookings({camp, sessionUser, isEditing, bookingId}) {
             numGuests,
       }));
     };
-
-    console.log(bookingDetails)
   
+
     const handleSubmit = (e) => {
       e.preventDefault();
-      if (isEditing){
-        dispatch(updateBooking({booking: bookingDetails}, bookingId));
+      if (!sessionUser){
+        setShowModal(true);
       } else {
-        dispatch(createNewBooking({booking: bookingDetails}));
-        history.push("/bookings");
+        if (isEditing){
+          dispatch(updateBooking({booking: bookingDetails}, bookingId));
+        } else {
+          dispatch(createNewBooking({booking: bookingDetails}));
+          history.push("/bookings");
+        }
       }
     };
   
@@ -61,6 +63,11 @@ function Bookings({camp, sessionUser, isEditing, bookingId}) {
           <BookingGuest onChange={handleBookingGuestChange} />
           <button className="Book-button" onClick={(e) => handleSubmit(e)}>Reserve</button>
         </div>
+        {showModal && (
+        <Modal onClose={() => setShowModal(false)}>
+          <LoginForm />
+        </Modal>
+        )}
       </>
     );
   }
