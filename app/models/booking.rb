@@ -50,9 +50,9 @@ class Booking < ApplicationRecord
 
     def check_in_before_check_out
         if check_in.nil?
-            errors.add(:base, "Select a check in date cannot be blank.")
+            errors.add(:base, "Select a check in date.")
         elsif check_out.nil?
-            errors.add(:base, "Select a check out date cannot be blank.")
+            errors.add(:base, "Select a check out date.")
         elsif check_in >= check_out
             errors.add(:base, "Check in must be before check out.")
         end
