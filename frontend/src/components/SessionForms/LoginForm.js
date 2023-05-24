@@ -50,10 +50,10 @@ function LoginForm() {
       <form onSubmit={handleSubmit} className="form">
         <div className="form-header">
           <h1> Log in to continue </h1>
-          <p>Welcome back! Let's get you outside.</p>
+          <p>Welcome back! Let's get you logged in and outside.</p>
         </div>
         <ul>
-          {errors.map(error => <li key={error}>{error}</li>)}
+          {errors.map(error => <li className="form-login-errors" key={error}>{error}</li>)}
         </ul>
         <label>
           <input

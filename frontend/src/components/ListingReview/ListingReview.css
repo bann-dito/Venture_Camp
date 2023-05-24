@@ -94,3 +94,8 @@
 .edit-review-button:hover{
     color: #00a26a;
 }
+
+.review-form-errors{
+    color: red;
+    font-size: 12px;
+}

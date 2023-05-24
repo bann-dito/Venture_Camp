@@ -44,7 +44,7 @@ function ReviewForm({listingId}){
                         <p>Share your experience with the community.</p>
                     </div>
                     <ul>
-                        {errors.map(error => <li key={error}>{error}</li>)}
+                        {errors.map(error => <li className="review-form-errors" key={error}>{error}</li>)}
                     </ul>
                     <label>Rating:
                         <input

@@ -38,7 +38,7 @@ function UpdateReviewForm({review, onClose}) {
                         <p>Update your review for this campsite.</p>
                     </div>
                     <ul>
-                        {errors.map(error => <li key={error}>{error}</li>)}
+                        {errors.map(error => <li className="review-form-errors" key={error}>{error}</li>)}
                     </ul>
                     <label>Rating:
                         <input

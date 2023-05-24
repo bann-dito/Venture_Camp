@@ -143,3 +143,8 @@
     background-color: #00a26a;
     color: white;
 }
+
+.form-login-errors, .form-signup-errors{
+    color: red;
+    font-size: 12px;
+}

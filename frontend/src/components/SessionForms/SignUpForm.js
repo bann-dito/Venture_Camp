@@ -40,7 +40,7 @@ function SignupFormPage() {
           <p>Join our community of nature lovers to see all of your booking info in one place.</p>
         </div>
         <ul>
-          {errors.map(error => <li key={error}>{error}</li>)}
+          {errors.map(error => <li className="form-signup-errors" key={error}>{error}</li>)}
         </ul>
         <label>
           <input
