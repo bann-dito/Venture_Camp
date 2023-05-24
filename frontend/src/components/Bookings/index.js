@@ -41,6 +41,13 @@ function Bookings({camp, sessionUser, isEditing, bookingId}) {
             numGuests,
       }));
     };
+
+    useEffect(() => {
+      if (sessionUser) {
+        setShowModal(false);
+      }
+
+    }, [sessionUser])
   
 
     const handleSubmit = (e) => {
@@ -50,6 +57,7 @@ function Bookings({camp, sessionUser, isEditing, bookingId}) {
         setShowModal(true);
       } else {
         if (isEditing){
+          // bookingDetails.userId = sessionUser.id;
           dispatch(updateBooking({booking: bookingDetails}, bookingId))
           .catch(async (res) => {
             let data;
