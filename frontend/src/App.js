@@ -5,7 +5,7 @@ import HomePage from "./components/HomePage";
 import ListingIndexPage from "./components/ListingIndexPage";
 import ListingShowPage from "./components/ListingShowPage";
 import BookingsShowPage from "./components/BookingsShowPage";
-
+import NoPath from "./components/NoPath";
 
 function App() {
   return (
@@ -23,6 +23,9 @@ function App() {
           </Route>
           <Route exact path="/listings/:id">
             <ListingShowPage />
+          </Route>
+          <Route path="*">
+            <NoPath />
           </Route>
         </Switch>
     </>
