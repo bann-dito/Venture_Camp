@@ -1,24 +1,43 @@
-# README
+# Venture Camp 🏕
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Venture Camp, an online market place clone of the popular site, [HipCamp](https://www.hipcamp.com/en-US). Users can book listings and leave reviews and ratings about their experience for others to read!
 
-Things you may want to cover:
+[Check it out here!](https://venture-camp.herokuapp.com/) 👈
 
-* Ruby version
+## Table Of Contents
+1. [Technologies](#technologies)
+2. [Features](#features)
+3. [Code Highlights](#code-highlights)
 
-* System dependencies
+## Technologies
+- Ruby on Rails
+- React / Redux
+- JavaScript / JBuilder
+- React Calendar Library
+- AWS S3
+- Google API
 
-* Configuration
+## Features
+**User Authentication**
 
-* Database creation
+Venture Camp is built with complete user authentication that comprises of User Sign Up, User Login and Demo User Login, and error handling for incorrect/incomplete enteries. Users are prompted to login when performing require user actions
 
-* Database initialization
+**Listings Index**
 
-* How to run the test suite
+Venture Camp features a listing index page that show cases each of unique and adventerous national parks in California. Users can browse through each of the listings to learn more about them!
 
-* Services (job queues, cache servers, search engines, etc.)
+**Booking**
 
-* Deployment instructions
+Users can visiting a listing and book directly on the booking, if the user does not fill in the form correctly, error will prompt the user appropiately!
 
-* ...
+**Review**
+
+Users can also leave reviews detailing their experiences. If the users have second thoughts about the review that they left, they can update their review.
+
+## Code Highlights
+
+### Bookings
+- The below code highlights if a user is creating a new booking or editing an exisiting booking, if the user is logged in and setting errors to local state.
+```js
+place holder
+```
