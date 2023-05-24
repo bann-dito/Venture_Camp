@@ -22,6 +22,8 @@ Venture Camp, an online market place clone of the popular site, [HipCamp](https:
 
 Venture Camp is built with complete user authentication that comprises of User Sign Up, User Login and Demo User Login, and error handling for incorrect/incomplete enteries. Users are prompted to login when performing require user actions
 
+![Alt Text](./login.gif)
+
 **Listings Index**
 
 Venture Camp features a listing index page that show cases each of unique and adventerous national parks in California. Users can browse through each of the listings to learn more about them!
@@ -30,9 +32,13 @@ Venture Camp features a listing index page that show cases each of unique and ad
 
 Users can visiting a listing and book directly on the booking, if the user does not fill in the form correctly, error will prompt the user appropiately!
 
+![Alt Text](./booking.gif)
+
 **Review**
 
 Users can also leave reviews detailing their experiences. If the users have second thoughts about the review that they left, they can update their review.
+
+![Alt Text](./review.gif)
 
 ## Code Highlights
 
