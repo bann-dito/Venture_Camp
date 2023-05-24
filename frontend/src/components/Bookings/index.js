@@ -51,14 +51,12 @@ function Bookings({camp, sessionUser, isEditing, bookingId}) {
       } else {
         if (isEditing){
           dispatch(updateBooking({booking: bookingDetails}, bookingId))
-          //How can I setup error handling for this booking update?
           .catch(async (res) => {
             let data;
             try {
-              // .clone() essentially allows you to read the response body twice
               data = await res.clone().json();
             } catch {
-              data = await res.text(); // Will hit this case if the server is down
+              data = await res.text();
             }
             if (data?.errors) setErrors(data.errors);
             else if (data) setErrors(data);
