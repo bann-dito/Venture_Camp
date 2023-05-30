@@ -105,27 +105,25 @@ function Bookings({camp, sessionUser, isEditing, bookingId}) {
   
     return (
       <section className='listing-show-booking' onClick={(e) => {
-        console.log(e.target);
         setShowCalendar(false);
         setShowGuests(false);
-        // console.log(showCalendar);
       }}>
         <h2>Availability</h2>
-          <ul className="booking-errors-list">
-            {errors.map((error, index) => (
-              <li className="booking-errors" key={index}>{error}</li>
-            ))}
-          </ul>
-          <div className="Booking-selector-container" >
-            <BookingDates onChange={handleBookingDatesChange} showCalendar={showCalendar} setShowCalendar={setShowCalendar}  />
-            <BookingGuest onChange={handleBookingGuestChange} showGuests={showGuests} setShowGuests={setShowGuests} />
-            <button className="Book-button" onClick={(e) => handleSubmit(e)}>Reserve</button>
-          </div>
-          {showModal && (
-          <Modal onClose={() => setShowModal(false)}>
-            <LoginForm />
-          </Modal>
-          )}
+        <ul className="booking-errors-list">
+          {errors.map((error, index) => (
+            <li className="booking-errors" key={index}>{error}</li>
+          ))}
+        </ul>
+        <div className="Booking-selector-container" >
+          <BookingDates onChange={handleBookingDatesChange} showCalendar={showCalendar} setShowCalendar={setShowCalendar}  />
+          <BookingGuest onChange={handleBookingGuestChange} showGuests={showGuests} setShowGuests={setShowGuests} />
+          <button className="Book-button" onClick={(e) => handleSubmit(e)}>Reserve</button>
+        </div>
+        {showModal && (
+        <Modal onClose={() => setShowModal(false)}>
+          <LoginForm />
+        </Modal>
+        )}
       </section>
     );
   }
