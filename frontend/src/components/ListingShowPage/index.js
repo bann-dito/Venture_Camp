@@ -8,6 +8,8 @@ import './ListingShowPage.css';
 import { getListingReviews, deleteReview } from '../../store/reviews';
 import Bookings from '../Bookings';
 import UpdateReview from '../ListingReview/UpdateReview';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCircleArrowLeft, faThumbsUp, faPersonHiking, faPersonBiking, faMountain, faFish, faHorse, faWifi, faDog, faToilet, faBath, faFire, faTrash } from '@fortawesome/free-solid-svg-icons';
 
 
 
@@ -60,14 +62,14 @@ function ListingShowPage() {
     }
 
     const average = reviews.reduce((acc, review) => acc + review.rating, 0) / reviews.length;
+    const averageRounded = Math.round((average / 5) * 100);
 
     const hasReviewed = sessionUser && reviews.some(review => review.authorId === sessionUser.id);
-    // frontend/public/assets/Death Valley National Park.jpg
     return (
         <div className='listing-show'>
             <div className="listing-show-header">
                 <Link to="/listings">
-                    <i className="fa-solid fa-circle-arrow-left"></i>
+                    <FontAwesomeIcon icon={faCircleArrowLeft}/>
                 </Link>
                 <h1>{title}</h1>
             </div>
@@ -99,31 +101,31 @@ function ListingShowPage() {
                     <h3>Activities</h3>
                     <li>
                         <span className='info-category'> 
-                            <i className="fa-solid fa-person-hiking"></i>
+                            <FontAwesomeIcon icon={faPersonHiking}/>
                             Hiking: {hiking ? "Yes" : "No"}
                         </span>
                     </li>
                     <li>
                         <span className='info-category'>
-                            <i className="fa-solid fa-person-biking"></i>
+                            <FontAwesomeIcon icon={faPersonBiking}/>
                             Biking: {biking ? "Yes" : "No"}
                         </span>
                     </li>
                     <li>
                         <span className='info-category'>
-                            <i className="fa-solid fa-mountain"></i>
+                            <FontAwesomeIcon icon={faMountain}/>
                             Rock Climbing: {rockClimbing ? "Yes" : "No"}
                         </span>
                     </li>
                     <li>
                         <span className='info-category'>
-                            <i className="fa-solid fa-fish"></i>
+                            <FontAwesomeIcon icon={faFish}/>
                             Fishing: {fishing ? "Yes" : "No"}
                         </span>
                     </li>
                     <li>
                         <span className='info-category'>
-                            <i className="fa-solid fa-horse"></i>
+                            <FontAwesomeIcon icon={faHorse}/>
                             Horseback Riding: {horsebackRiding ? "Yes" : "No"}
                         </span>
                     </li>
@@ -132,60 +134,56 @@ function ListingShowPage() {
                     <h3>Amenities</h3>
                     <li>
                         <span className='info-category'>
-                            <i className="fa-solid fa-wifi"></i>
+                            <FontAwesomeIcon icon={faWifi}/>
                             WiFi: {wifi ? "Yes" : "No"}
                         </span>
                     </li>
                     <li>
                         <span className='info-category'>
-                            <i className="fa-solid fa-dog"></i>
+                            <FontAwesomeIcon icon={faDog}/>
                             Pets: {pets ? "Yes" : "No"} 
                         </span>
                     </li>
                     <li>
                         <span className='info-category'>
-                            <i className="fa-solid fa-toilet"></i>
+                            <FontAwesomeIcon icon={faToilet}/>
                             Toilet: {toilet ? "Yes": "No"}
                         </span>
                     </li>
                     <li>
                         <span className='info-category'>
-                            <i className="fa-solid fa-bath"></i>
+                            <FontAwesomeIcon icon={faBath}/>
                             Shower: {shower ? "Yes" : "No"}
                         </span>
                     </li>
                     <li>
                         <span className='info-category'>
-                            <i className="fa-solid fa-fire"></i>
+                            <FontAwesomeIcon icon={faFire}/>
                             Campfire: {campfire ? "Yes" : "No"}
                         </span>
                     </li>
                 </ul>
             </section>
             <div className='section-break'></div>
-            <section className='listing-show-booking'>
-                <h2>Availability</h2>
                 <Bookings camp={camp} sessionUser={sessionUser}/>
-            </section>
             <div className='section-break'></div>
             <section className='listing-show-map'>
                 <h2>Location</h2>
-            <CampMap
-                camps={[camp]}
-                mapOptions={{ center: { lat: latitude, lng: longitude }, zoom: 11 }}
-            />
+                <CampMap
+                    camps={[camp]}
+                    mapOptions={{ center: { lat: latitude, lng: longitude }, zoom: 11 }}
+                />
             </section>
             <section className='listing-show-reviews'>
                 <div className='section-break'></div>
                 <h2> 
-                    <i className="fa-solid fa-thumbs-up"></i>
-                    {(average / 5) * 100 }% 
+                    <FontAwesomeIcon icon={faThumbsUp}/>
+                    {averageRounded}%
                 </h2>
                 <h3>{reviews.length} Reviews</h3>
                 <div className='listing-review'>
                     {reviews.map(review => (
                         <div className="review" key={review.id}>
-                            {/* <h2>Rating: {review.rating}</h2> */}
                             <div className='review-card-heading'>
                                 <h2>{review?.author}</h2>
                                 {review.authorId === sessionUser?.id && (
@@ -195,7 +193,7 @@ function ListingShowPage() {
                                             className="delete-review"
                                             onClick={() => dispatch(deleteReview(review.id))}
                                         >
-                                            <i className="fa-solid fa-trash"></i>
+                                            <FontAwesomeIcon icon={faTrash}/>
                                         </button>
                                     </div>
                                 )}

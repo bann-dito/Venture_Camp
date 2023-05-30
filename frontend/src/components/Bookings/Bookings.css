@@ -25,8 +25,13 @@
     width: 100%;
 }
 
-.Date-selector-container > button >  i{
+.Date-selector-container > button >  svg{
     padding: 10px;
+}
+
+.guest-selector-container{
+    width: 100%;
+    display: flex;
 }
 
 .guests-container{
@@ -49,6 +54,7 @@
     align-items: center;
     display: flex;
     font-size: 18px;
+    height: 45px;
     /* margin: 20px 0; */
 }
 
@@ -91,7 +97,7 @@
 
 }
 
-.guests-container >  i{
+.guests-container >  svg{
     padding: 10px;
 }
 

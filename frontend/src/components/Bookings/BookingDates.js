@@ -3,23 +3,25 @@ import Calendar from 'react-calendar';
 import { useDispatch } from "react-redux";
 import 'react-calendar/dist/Calendar.css';
 import { useEffect } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCalendar } from "@fortawesome/free-solid-svg-icons";
 
-function BookingDates({ onChange }) {
+function BookingDates({ onChange, showCalendar, setShowCalendar }) {
     const [dates, setDates] = useState([]);
-    const [showCalendar, setShowCalendar] = useState(false);
+    // const [showCalendar, setShowCalendar] = useState(false);
   
-    useEffect(() => {
-      document.addEventListener("click", handleClickOutside);
-      return () => {
-        document.removeEventListener("click", handleClickOutside);
-      };
-    });
+    // useEffect(() => {
+    //   document.addEventListener("click", handleClickOutside);
+    //   return () => {
+    //     document.removeEventListener("click", handleClickOutside);
+    //   };
+    // });
   
-    const handleClickOutside = (event) => {
-      if (showCalendar && !event.target.closest(".calendar-container")) {
-        setShowCalendar(false);
-      }
-    };
+    // const handleClickOutside = (event) => {
+    //   if (showCalendar && !event.target.closest(".calendar-container")) {
+    //     setShowCalendar(false);
+    //   }
+    // };
   
     const handleCalendarChange = (newDates) => {
       setDates(newDates);
@@ -27,10 +29,12 @@ function BookingDates({ onChange }) {
     };
   
     return (
-        <div className="Date-selector-container">
+        <div className="Date-selector-container" onClick={(e) => e.stopPropagation()}>
           DATES
-          <button onClick={() => setShowCalendar(true)}>
-            <i className="fa-solid fa-calendar"/>
+          <button onClick={(e) => {
+            setShowCalendar(prev => !prev)
+          }}>
+            <FontAwesomeIcon icon={faCalendar}/>
             {dates[0] ? dates[0].toLocaleDateString() : "Check In"} -{" "}
             {dates[1] ? dates[1].toLocaleDateString() : "Check Out"}
           </button>
