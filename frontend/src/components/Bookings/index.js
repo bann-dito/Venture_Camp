@@ -59,23 +59,9 @@ function Bookings({camp, sessionUser, isEditing, bookingId}) {
       if (!sessionUser){
         setShowModal(true);
       } else {
-        if (isEditing){
-          dispatch(updateBooking({booking: bookingDetails}, bookingId))
+        dispatch(isEditing ? updateBooking : createNewBooking({booking: bookingDetails}))
+          .then(() => !isEditing && history.push("/bookings"))
           .catch(async (res) => {
-            let data;
-            try {
-              data = await res.clone().json();
-            } catch {
-              data = await res.text();
-            }
-            if (data?.errors) setErrors(data.errors);
-            else if (data) setErrors(data);
-            else setErrors([res.statusText]);
-          }); 
-        } else {
-          dispatch(createNewBooking({booking: bookingDetails}))
-            .then(() => history.push("/bookings"))
-            .catch(async (res) => {
               let data;
               try {
                 data = await res.clone().json();
@@ -86,7 +72,34 @@ function Bookings({camp, sessionUser, isEditing, bookingId}) {
               else if (data) setErrors(data);
               else setErrors([res.statusText]);
             });
-          }
+        // if (isEditing){
+        //   dispatch(updateBooking({booking: bookingDetails}, bookingId))
+        //   .catch(async (res) => {
+        //     let data;
+        //     try {
+        //       data = await res.clone().json();
+        //     } catch {
+        //       data = await res.text();
+        //     }
+        //     if (data?.errors) setErrors(data.errors);
+        //     else if (data) setErrors(data);
+        //     else setErrors([res.statusText]);
+        //   }); 
+        // } else {
+        //   dispatch(createNewBooking({booking: bookingDetails}))
+        //     .then(() => history.push("/bookings"))
+        //     .catch(async (res) => {
+        //       let data;
+        //       try {
+        //         data = await res.clone().json();
+        //       } catch {
+        //         data = await res.text();
+        //       }
+        //       if (data?.errors) setErrors(data.errors);
+        //       else if (data) setErrors(data);
+        //       else setErrors([res.statusText]);
+        //     });
+        //   }
       }
     };
   

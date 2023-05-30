@@ -25,7 +25,7 @@ function BookingDates({ onChange, showCalendar, setShowCalendar }) {
   
     const handleCalendarChange = (newDates) => {
       setDates(newDates);
-      onChange(newDates[0], newDates[1]);
+      onChange(newDates[0].toLocaleDateString('en-GB'), newDates[1].toLocaleDateString('en-GB'));
     };
   
     return (
