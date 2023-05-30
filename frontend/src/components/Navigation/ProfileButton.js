@@ -2,30 +2,14 @@ import React, { useState, useEffect } from "react";
 import { useDispatch } from 'react-redux';
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import * as sessionActions from '../../store/session';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import {faCampground} from '@fortawesome/free-solid-svg-icons'
 
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
-  const [iconClass, setIconClass] = useState("fa-solid fa-campground")
   const history = useHistory();
   
-  const openMenu = () => {
-    setShowMenu(true);
-    setIconClass("fa-solid fa-campground fa-bounce")
-  };
-
-  const closeMenu = () => {
-    setShowMenu(false);
-    setIconClass("fa-solid fa-campground")
-  };
-  
-  useEffect(() => {
-    if (!showMenu) return;
-
-    document.addEventListener('click', closeMenu);
-    return () => document.removeEventListener("click", closeMenu);
-  }, [showMenu]);
-
   const logout = (e) => {
     e.preventDefault();
     dispatch(sessionActions.logout());
@@ -33,8 +17,8 @@ function ProfileButton({ user }) {
 
   return (
     <div className='profile-button-container'>
-      <button className="profile-button" onClick={openMenu}>
-        <i className={iconClass} style={{color: "#c74f2d"}}></i>
+      <button className="profile-button" onClick={() => setShowMenu(prev => !prev)}>
+        <FontAwesomeIcon icon={faCampground} color="#c74f2d" bounce={showMenu} />
       </button>
       <ul className={`profile-dropdown ${showMenu ? 'show' : ''}`}>
         <li>{user.username}</li>

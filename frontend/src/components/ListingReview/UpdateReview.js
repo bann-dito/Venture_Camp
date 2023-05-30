@@ -2,6 +2,8 @@ import { useState } from "react";
 import { Modal } from "../../context/Modal";
 import UpdateReviewForm from "./UpdateReviewForm";
 import './ListingReview.css';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPenToSquare } from "@fortawesome/free-solid-svg-icons";
 
 
 function UpdateReview ({review}) {
@@ -11,7 +13,7 @@ function UpdateReview ({review}) {
     return (
         <>
             <button onClick={() => setShowModal(true)} className='edit-review-button'>
-                <i className="fa-solid fa-pen-to-square"></i>
+                <FontAwesomeIcon icon={faPenToSquare}/>
             </button>
             {showModal && (
                 <Modal onClose={() => setShowModal(false)}>

@@ -16,6 +16,8 @@ function Bookings({camp, sessionUser, isEditing, bookingId}) {
     const history = useHistory();
     const [showModal, setShowModal] = useState(false);
     const [errors, setErrors] = useState([]);
+    const [showCalendar, setShowCalendar] = useState(false);
+    const [showGuests, setShowGuests] = useState(false);
     // const [isEditing, setIsEditing] = useState(false);
 
     const [bookingDetails, setBookingDetails] = useState({
@@ -48,6 +50,7 @@ function Bookings({camp, sessionUser, isEditing, bookingId}) {
       }
 
     }, [sessionUser])
+
   
 
     const handleSubmit = (e) => {
@@ -56,24 +59,9 @@ function Bookings({camp, sessionUser, isEditing, bookingId}) {
       if (!sessionUser){
         setShowModal(true);
       } else {
-        if (isEditing){
-          // bookingDetails.userId = sessionUser.id;
-          dispatch(updateBooking({booking: bookingDetails}, bookingId))
+        dispatch(isEditing ? updateBooking : createNewBooking({booking: bookingDetails}))
+          .then(() => !isEditing && history.push("/bookings"))
           .catch(async (res) => {
-            let data;
-            try {
-              data = await res.clone().json();
-            } catch {
-              data = await res.text();
-            }
-            if (data?.errors) setErrors(data.errors);
-            else if (data) setErrors(data);
-            else setErrors([res.statusText]);
-          }); 
-        } else {
-          dispatch(createNewBooking({booking: bookingDetails}))
-            .then(() => history.push("/bookings"))
-            .catch(async (res) => {
               let data;
               try {
                 data = await res.clone().json();
@@ -84,29 +72,61 @@ function Bookings({camp, sessionUser, isEditing, bookingId}) {
               else if (data) setErrors(data);
               else setErrors([res.statusText]);
             });
-          }
+        // if (isEditing){
+        //   dispatch(updateBooking({booking: bookingDetails}, bookingId))
+        //   .catch(async (res) => {
+        //     let data;
+        //     try {
+        //       data = await res.clone().json();
+        //     } catch {
+        //       data = await res.text();
+        //     }
+        //     if (data?.errors) setErrors(data.errors);
+        //     else if (data) setErrors(data);
+        //     else setErrors([res.statusText]);
+        //   }); 
+        // } else {
+        //   dispatch(createNewBooking({booking: bookingDetails}))
+        //     .then(() => history.push("/bookings"))
+        //     .catch(async (res) => {
+        //       let data;
+        //       try {
+        //         data = await res.clone().json();
+        //       } catch {
+        //         data = await res.text();
+        //       }
+        //       if (data?.errors) setErrors(data.errors);
+        //       else if (data) setErrors(data);
+        //       else setErrors([res.statusText]);
+        //     });
+        //   }
       }
     };
   
     return (
-      <>
-        {console.log(errors)}
-        <ul className="booking-errors-list">
-          {errors.map((error, index) => (
-            <li className="booking-errors" key={index}>{error}</li>
-          ))}
-        </ul>
-        <div className="Booking-selector-container">
-          <BookingDates onChange={handleBookingDatesChange} />
-          <BookingGuest onChange={handleBookingGuestChange} />
-          <button className="Book-button" onClick={(e) => handleSubmit(e)}>Reserve</button>
-        </div>
-        {showModal && (
-        <Modal onClose={() => setShowModal(false)}>
-          <LoginForm />
-        </Modal>
-        )}
-      </>
+      <section className='listing-show-booking' onClick={(e) => {
+        console.log(e.target);
+        setShowCalendar(false);
+        setShowGuests(false);
+        // console.log(showCalendar);
+      }}>
+        <h2>Availability</h2>
+          <ul className="booking-errors-list">
+            {errors.map((error, index) => (
+              <li className="booking-errors" key={index}>{error}</li>
+            ))}
+          </ul>
+          <div className="Booking-selector-container" >
+            <BookingDates onChange={handleBookingDatesChange} showCalendar={showCalendar} setShowCalendar={setShowCalendar}  />
+            <BookingGuest onChange={handleBookingGuestChange} showGuests={showGuests} setShowGuests={setShowGuests} />
+            <button className="Book-button" onClick={(e) => handleSubmit(e)}>Reserve</button>
+          </div>
+          {showModal && (
+          <Modal onClose={() => setShowModal(false)}>
+            <LoginForm />
+          </Modal>
+          )}
+      </section>
     );
   }
   

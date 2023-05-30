@@ -18,7 +18,7 @@ function BookingListItem({booking}){
     }, [dispatch, listingId])
 
     const dateConverter = (date) => { 
-        let newDate = new Date(date)
+        let newDate = new Date(date + ' 0:')
         return newDate.toLocaleDateString('en-US', { 
             weekday: 'short', 
             month: 'short', 
