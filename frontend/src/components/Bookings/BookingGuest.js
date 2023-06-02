@@ -19,7 +19,6 @@ function BookingGuest({ onChange, showGuests, setShowGuests }) {
         
         <button className="guests-container" onClick={(e) => {
           setShowGuests(prev => !prev)
-          console.log(showGuests)
         }}>
           <FontAwesomeIcon icon={faUser}/>
           <label>Number of Guests:</label>
