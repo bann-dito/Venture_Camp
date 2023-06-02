@@ -47,6 +47,10 @@ function Bookings({camp, sessionUser, isEditing, bookingId}) {
     useEffect(() => {
       if (sessionUser) {
         setShowModal(false);
+        setBookingDetails((prevBookingDetails) => ({
+          ...prevBookingDetails,
+          userId: sessionUser.id,
+        }));
       }
 
     }, [sessionUser])
