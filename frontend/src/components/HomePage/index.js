@@ -9,7 +9,7 @@ function HomePage(){
         <div className="Home-Page-Container">
             <div className="Home-Page-Text-Heading">
                 <h1>Find yourself outside.</h1>
-                <p>Discover and book tent camping, RV parks, cabons, glamping and more.</p>
+                <p>Discover and book tent camping, RV parks, cabins, glamping and more.</p>
             </div>
             <div className="Home-Page-Image-Container"> 
                 <img className="Home-Page-Header-Image" src="/assets/lake.jpg" alt="camping" />
@@ -22,7 +22,7 @@ function HomePage(){
                     <div className="Home-Page-Card-Info" id="Card-One">
                         <div className="Home-Page-Card-Text">
                             <h3>LONG WEEKEND</h3>
-                            <p>Stay an extra a day for those summer weekends.</p>
+                            <p>Stay an extra day for those summer weekends.</p>
                         </div>
                         <button className="Home-Page-Book-Now" onClick={() => history.push("/listings")}>Book Now</button>
                     </div>
