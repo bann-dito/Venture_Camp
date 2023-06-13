@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     resources :listings, only: [:index, :show]
     resources :reviews, only: [:create, :destroy, :index, :update]
     resources :bookings, only: [:create, :destroy, :index, :update]
+    resources :search, only: [:index]
   end
 
   # Catch-all route to serve up frontend files
