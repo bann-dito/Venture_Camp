@@ -51,6 +51,8 @@ const listingsReducer = (state = {}, action) => {
             // const newState = {}
             // return newState[action.listing.id] = action.listing
             return {...state, [action.listing.id]: action.listing}
+        case SEARCH_LISTINGS:
+            return action.listings;
         default:
             return state;
     }
