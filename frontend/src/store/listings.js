@@ -36,8 +36,8 @@ export const fetchListing = (id) => async (dispatch) => {
     dispatch(addUsers(users));
 }
 
-export const fetchListingsBySearch = (search) => async (dispatch) => {
-    const response = await csrfFetch(`/api/search?search=${search}`);
+export const fetchListingsBySearch = (search, checkIn, checkOut) => async (dispatch) => {
+    const response = await csrfFetch(`/api/search?search=${search}&check_in=${checkIn}&check_out=${checkOut}`);
     const {listings} = await response.json();
     dispatch(searchListings(listings));
 }
