@@ -5,6 +5,7 @@ import csrfFetch from "./csrf";
 
 const RECEIVE_LISTINGS = "listings/setListings";
 const RECEIVE_LISTING = "listings/setListing";
+const SEARCH_LISTINGS = "listings/searchListings";
 
 export const receiveListings = (listings) => ({
     type: RECEIVE_LISTINGS,
@@ -14,6 +15,11 @@ export const receiveListings = (listings) => ({
 export const receiveListing = (listing) => ({
     type: RECEIVE_LISTING,
     listing
+});
+
+export const searchListings = (listings) => ({
+    type: SEARCH_LISTINGS,
+    listings
 });
 
 export const fetchListings = () => async (dispatch) => {
@@ -28,6 +34,12 @@ export const fetchListing = (id) => async (dispatch) => {
     dispatch(receiveListing(listing));
     dispatch(addReviews(reviews));
     dispatch(addUsers(users));
+}
+
+export const fetchListingsBySearch = (search) => async (dispatch) => {
+    const response = await csrfFetch(`/api/search?search=${search}`);
+    const {listings} = await response.json();
+    dispatch(searchListings(listings));
 }
 
 
