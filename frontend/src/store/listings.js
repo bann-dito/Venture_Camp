@@ -22,6 +22,7 @@ export const searchListings = (listings) => ({
     listings
 });
 
+
 export const fetchListings = () => async (dispatch) => {
     const response = await csrfFetch("/api/listings");
     const {listings} = await response.json();
@@ -38,6 +39,13 @@ export const fetchListing = (id) => async (dispatch) => {
 
 export const fetchListingsBySearch = (search, checkIn, checkOut) => async (dispatch) => {
     const response = await csrfFetch(`/api/search?search=${search}&check_in=${checkIn}&check_out=${checkOut}`);
+    const {listings} = await response.json();
+    dispatch(searchListings(listings));
+}
+
+export const fetchListingBySearchTonight = () => async (dispatch) => {
+    const availableTonight = "availableTonight"
+    const response = await csrfFetch(`/api/search?available_tonight=${availableTonight}`);
     const {listings} = await response.json();
     dispatch(searchListings(listings));
 }

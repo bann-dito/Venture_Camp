@@ -1,6 +1,6 @@
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min"
 import SearchBar from "./SearchBar"
-import { fetchListings, fetchListingsBySearch} from "../../store/listings"
+import { fetchListings, fetchListingBySearchTonight} from "../../store/listings"
 import { useDispatch } from "react-redux"
 
 import "./HomePage.css"
@@ -11,6 +11,11 @@ function HomePage(){
 
     const allListingsClick = () => {
         dispatch(fetchListings())
+        history.push("/listings")
+    }
+
+    const tonightClick = () => {
+        dispatch(fetchListingBySearchTonight())
         history.push("/listings")
     }
 
@@ -54,7 +59,7 @@ function HomePage(){
             <div className="Home-Page-Sub-Card-Container">
                 <h3>Find your next getaway</h3>
                 <div className="Home-Page-Sub-Cards">
-                    <div className="Sub-Card" onClick={() => history.push("/listings")}>
+                    <div className="Sub-Card" onClick={() => tonightClick()}>
                         <div className="Sub-Card-Image-Container">
                             <img src="/assets/tonight.jpg" alt="camping" />
                             <button className="Sub-Card-Button" id="Button-three"> Available Tonight </button>
