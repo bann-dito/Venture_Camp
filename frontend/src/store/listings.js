@@ -23,8 +23,8 @@ export const searchListings = (listings) => ({
 });
 
 
-export const fetchListings = () => async (dispatch) => {
-    const response = await csrfFetch("/api/listings");
+export const fetchListings = (query) => async (dispatch) => {
+    const response = await csrfFetch(`/api/listings?${query?.toString()}`);
     const {listings} = await response.json();
     dispatch(receiveListings(listings));
 }
@@ -37,18 +37,25 @@ export const fetchListing = (id) => async (dispatch) => {
     dispatch(addUsers(users));
 }
 
-export const fetchListingsBySearch = (search, checkIn, checkOut) => async (dispatch) => {
-    const response = await csrfFetch(`/api/search?search=${search}&check_in=${checkIn}&check_out=${checkOut}`);
-    const {listings} = await response.json();
-    dispatch(searchListings(listings));
-}
+// export const fetchListingsBySearch = (search, checkIn, checkOut) => async (dispatch) => {
+//     const response = await csrfFetch(`/api/search?search=${search}&check_in=${checkIn}&check_out=${checkOut}`);
+//     const {listings} = await response.json();
+//     dispatch(searchListings(listings));
+// }
 
-export const fetchListingBySearchTonight = () => async (dispatch) => {
-    const availableTonight = "availableTonight"
-    const response = await csrfFetch(`/api/search?available_tonight=${availableTonight}`);
-    const {listings} = await response.json();
-    dispatch(searchListings(listings));
-}
+// export const fetchListingsByFilter = (filter) => async (dispatch) => {
+//     // const availableTonight = "availableTonight"
+//     const response = await csrfFetch(`/api/search?filter=${filter}`);
+//     const {listings} = await response.json();
+//     dispatch(searchListings(listings));
+// }
+
+// export const fetchListingBySearchTonight = () => async (dispatch) => {
+//     const availableTonight = "availableTonight"
+//     const response = await csrfFetch(`/api/search?available_tonight=${availableTonight}`);
+//     const {listings} = await response.json();
+//     dispatch(searchListings(listings));
+// }
 
 
 const listingsReducer = (state = {}, action) => {

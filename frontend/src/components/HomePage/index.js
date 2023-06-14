@@ -1,6 +1,6 @@
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min"
 import SearchBar from "./SearchBar"
-import { fetchListings, fetchListingBySearchTonight} from "../../store/listings"
+import { fetchListings, fetchListingsByFilter, fetchListingBySearchTonight} from "../../store/listings"
 import { useDispatch } from "react-redux"
 
 import "./HomePage.css"
@@ -10,14 +10,18 @@ function HomePage(){
     const dispatch = useDispatch()
 
     const allListingsClick = () => {
-        dispatch(fetchListings())
         history.push("/listings")
     }
 
-    const tonightClick = () => {
-        dispatch(fetchListingBySearchTonight())
-        history.push("/listings")
+    const filteredClick = (e) => {
+        // dispatch(fetchListingsByFilter(e.currentTarget.id))
+        history.push(`/listings?filter=${e.currentTarget.id}`)
     }
+
+    // const tonightClick = () => {
+    //     dispatch(fetchListingBySearchTonight())
+    //     history.push("/listings")
+    // }
 
     return(
         <>
@@ -40,7 +44,7 @@ function HomePage(){
                             <h3>LONG WEEKEND</h3>
                             <p>Stay an extra day for those summer weekends.</p>
                         </div>
-                        <button className="Home-Page-Book-Now" onClick={() => allListingsClick()}>Book Now</button>
+                        <button className="Home-Page-Book-Now" onClick={allListingsClick}>Book Now</button>
                     </div>
                 </div>
                 <div className="Home-Page-Card">
@@ -59,7 +63,8 @@ function HomePage(){
             <div className="Home-Page-Sub-Card-Container">
                 <h3>Find your next getaway</h3>
                 <div className="Home-Page-Sub-Cards">
-                    <div className="Sub-Card" onClick={() => tonightClick()}>
+                    <div className="Sub-Card" id="tonight" onClick={filteredClick}>
+                    {/* <div className="Sub-Card" onClick={() => tonightClick()}> */}
                         <div className="Sub-Card-Image-Container">
                             <img src="/assets/tonight.jpg" alt="camping" />
                             <button className="Sub-Card-Button" id="Button-three"> Available Tonight </button>

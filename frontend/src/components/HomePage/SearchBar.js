@@ -15,8 +15,13 @@ function SearchBar() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        history.push("/listings");
-        dispatch(fetchListingsBySearch(search, checkIn, checkOut));
+        const searchParams = new URLSearchParams({
+            search,
+            checkIn,
+            checkOut
+        });
+        history.push(`/listings?${searchParams.toString()}`);
+        // dispatch(fetchListingsBySearch(search, checkIn, checkOut));
     }
 
     return (
