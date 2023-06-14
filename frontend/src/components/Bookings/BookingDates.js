@@ -8,20 +8,6 @@ import { faCalendar } from "@fortawesome/free-solid-svg-icons";
 
 function BookingDates({ onChange, showCalendar, setShowCalendar }) {
     const [dates, setDates] = useState([]);
-    // const [showCalendar, setShowCalendar] = useState(false);
-  
-    // useEffect(() => {
-    //   document.addEventListener("click", handleClickOutside);
-    //   return () => {
-    //     document.removeEventListener("click", handleClickOutside);
-    //   };
-    // });
-  
-    // const handleClickOutside = (event) => {
-    //   if (showCalendar && !event.target.closest(".calendar-container")) {
-    //     setShowCalendar(false);
-    //   }
-    // };
   
     const handleCalendarChange = (newDates) => {
       setDates(newDates);

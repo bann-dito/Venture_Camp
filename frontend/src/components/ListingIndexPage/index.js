@@ -12,8 +12,12 @@ function ListingIndexPage() {
     const camps = useSelector(state => Object.values(state.listings));
     const [highlightedCamp, setHighlightedCamp] = useState(null);
 
+
+
     useEffect(() => {
-        dispatch(fetchListings());
+        if (camps.length === 0) {
+            dispatch(fetchListings());
+        }
     }, [dispatch]);
 
     return (
